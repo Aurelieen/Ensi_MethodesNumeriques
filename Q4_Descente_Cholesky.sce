@@ -32,7 +32,7 @@ function z = descente(l_diag, l_inf, y)
     z(1) = y(1) / l_diag(1);
     
     for j = 2:n
-        z(j) = (y(j) - l_inf(j - 1) * z(j - 1)) / l_inf(j);
+        z(j) = (y(j) - l_inf(j - 1) * z(j - 1)) / l_diag(j);
     end
 endfunction
 
