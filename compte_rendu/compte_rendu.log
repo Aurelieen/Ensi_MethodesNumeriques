@@ -1,9 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.22)  4 APR 2017 20:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.22)  25 APR 2017 12:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**compte_rendu.tex compte_rendu.aux compte_rendu.log compte_rendu.pdf compte_re
-ndu.tex compte_rendu.thm
+**compte_rendu.tex
 (./compte_rendu.tex
 LaTeX2e <2016/03/31> patch level 1
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
@@ -954,29 +953,32 @@ LaTeX Font Info:    Try loading font information for U+stmry on input line 63.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 128.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 171.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 132--135
+Underfull \hbox (badness 10000) in paragraph at lines 175--178
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
 [3]
-Overfull \hbox (1.47049pt too wide) in paragraph at lines 223--226
+Overfull \hbox (1.47049pt too wide) in paragraph at lines 266--269
 []\T1/cmr/m/n/10.95 Le ré-sul-tat de la fonc-tion \T1/cmtt/m/n/10.95 integrale2
  \T1/cmr/m/n/10.95 est plus cré-dible que ce-lui de la fonc-tion \T1/cmtt/m/n/1
 0.95 integrale1\T1/cmr/m/n/10.95 .
  []
 
-[4] [5] [6]
+Package mdframed Info: Not enough space on this page on input line 312.
+[4]
+Package mdframed Info: Not enough space on this page on input line 312.
+ [5] [6]
 \tf@thm=\write3
 \openout3 = `compte_rendu.thm'.
 
@@ -984,11 +986,11 @@ Overfull \hbox (1.47049pt too wide) in paragraph at lines 223--226
 Here is how much of TeX's memory you used:
  14831 strings out of 493014
  252394 string characters out of 6133336
- 313006 words of memory out of 5000000
+ 315006 words of memory out of 5000000
  18189 multiletter control sequences out of 15000+600000
  22264 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,20n,44p,10517b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,20n,44p,10432b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/
 cm-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
@@ -1015,7 +1017,7 @@ l/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb></usr/local/
 texlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/te
 xlive/2016/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texl
 ive/2016/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb>
-Output written on compte_rendu.pdf (7 pages, 323523 bytes).
+Output written on compte_rendu.pdf (7 pages, 328931 bytes).
 PDF statistics:
  129 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream

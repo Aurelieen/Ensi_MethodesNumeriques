@@ -110,11 +110,50 @@
 
 \section{Factorisation de Cholesky dans le cas tridiagonal}
 
-D'après (9):
-$ \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}](x_i, t_k) = \frac{
-C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)}+C_{i-1/2}u_{i-1}^{k}}{\delta^{2}}}$
-Pour résoudre (13), on résout 9 pour chaque coefficient $u_i^{k}$
 \section{Problème stationnaire}
+
+
+D'après (9):
+$ \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}](x_i, t_k) = \frac{C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)}+C_{i-1/2}u_{i-1}^{k}}{\delta^{2}} $
+Pour résoudre (13), on résout 9 pour chaque coefficient $u_i^{k}$
+
+Question 7.
+
+On résout l'équation:
+$$\left\{
+\begin{array}{ll}
+  \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}] = 0 \\
+  u(-l) = u_0 \\
+  u(l) = 0
+  \end{array}
+\right.
+$$
+
+$  \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}] = 0 $
+$  -\frac{1}{l} e^{-\frac{x}{l}}\frac{\partial u}{\partial x} + e^{-\frac{x}{l}} \frac{\partial^2 u }{\partial x^2} = 0 $
+$ \frac{\partial^2 u}{\partial x^2} - \frac{1}{l} \frac{\partial u}{\partial x} = 0$
+
+$u(x) = \alpha + \beta e^{\frac{x}{l}} $
+
+Calcul des constantes:
+$$\left\{
+  \begin{array}{ll}
+    u(-l) = \alpha + \beta e^{-1} = u_0 = 1 \\
+    u(l) = \alpha + \beta e = 0
+  \end{array}
+\right.
+$$
+
+$$\left\{
+  \begin{array}{ll}
+    \beta = \frac{1}{e^{-1} - e} \\
+    \alpha = -\frac{e}{e^{-1} - e}
+  \end{array}
+\right.
+$$
+
+Donc :
+$u(x) = -\frac{e}{e^{-1} - e} + \frac{1}{e^{-1} - e} e^{\frac{x}{l}} $
 
 \section{\'{E}volution d'une donnée stationnaire}
 
