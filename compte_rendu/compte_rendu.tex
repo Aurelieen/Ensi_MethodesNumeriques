@@ -108,6 +108,75 @@
 
 \vspace{1cm}
 
+Question 2.
+
+La matrice est à diagonale dominante en effet $|-(C_{i+1/2} + C_{i-1/2})| \ge |C_{i+1/2}| + |C_{i-1/2}| $
+Car les C sont tous positifs.
+
+La matrice est donc symétrique et positive.
+
+Pour montrer qu'elle est définie, il faut montrer que 0 n'est pas valeur propre et que la matrice est donc inversible.
+$$
+A_n(\lambda)
+\begin{vmatrix}
+  C_{1 + 1/2} + C_{1 - 1/2} - \lambda & -C_{1 + 1/2} & & 0\\
+  -C_{2 - 1/2} & \ddots & \ddots &  \\
+  & \ddots & \ddots &  -C_{(n - 1) + 1/2} \\
+  0 &  & -C_{n - 1/2} & C_{n + 1/2} + C_{n - 1/2} - \lambda
+\end{vmatrix}
+  $$
+
+On développe le déterminant par le bas.
+
+\begin{equation*}
+\begin{split}
+A_n(\lambda) =
+(C_{n + 1/2} + C_{n - 1/2} - \lambda)
+\begin{vmatrix}
+  C_{1 + 1/2} + C_{1 - 1/2} - \lambda & -C_{1 + 1/2} & & 0\\
+  -C_{2 - 1/2} & \ddots & \ddots &  \\
+  & \ddots & \ddots &  -C_{(n - 2) + 1/2} \\
+  0 &  0 & -C_{n - 1 - 1/2} & C_{n - 1 + 1/2} + C_{n - 1 - 1/2} - \lambda
+\end{vmatrix} \\
+\quad
++C_{n - 1/2}
+\begin{vmatrix}
+  C_{1 + 1/2} + C_{1 - 1/2} - \lambda & -C_{1 + 1/2} & & 0\\
+  -C_{2 - 1/2} & \ddots & \ddots &  \\
+  & \ddots &  C_{n - 2 + 1/2} + C_{n - 2 - 1/2} - \lambda & 0 \\
+  0 &  \ddots & -C_{n - 1 - 1/2} & -C_{n - 1 + 1/2}
+\end{vmatrix}
+\end{split}
+\end{equation*}
+
+  \begin{equation*}
+  \begin{split}
+  A_n(\lambda) =
+  (C_{n + 1/2} + C_{n - 1/2} - \lambda)
+  \begin{vmatrix}
+    C_{1 + 1/2} + C_{1 - 1/2} - \lambda & -C_{1 + 1/2} & & 0\\
+    -C_{2 - 1/2} & \ddots & \ddots &  \\
+    & \ddots & \ddots &  -C_{(n - 1) + 1/2}\\
+    0 &  0 & -C_{n - 1 - 1/2} & C_{n - 1 + 1/2} + C_{n - 1 - 1/2} - \lambda
+  \end{vmatrix} \\
+\quad
+  -C_{n - 1/2}^{2}
+\begin{vmatrix}
+    C_{1 + 1/2} + C_{1 - 1/2} - \lambda & -C_{1 + 1/2} & & 0\\
+    -C_{2 - 1/2} & \ddots & \ddots &  \\
+    & \ddots & \ddots &  -C_{(n - 3) + 1/2} \\
+    0 &  & -C_{n - 2 -1/2} & C_{n - 2 + 1/2} + C_{n - 2 - 1/2} - \lambda
+  \end{vmatrix}
+  \end{split}
+\end{equation*}
+
+Donc $A_n(\lambda) = (C_{n + 1/2} + C_{n - 1/2} - \lambda) A_{n-1}(\lambda) -C_{n - 1/2}^{2} A_{n-2}(\lambda) $
+
+
+
+
+
+
 \section{Factorisation de Cholesky dans le cas tridiagonal}
 
 \section{Problème stationnaire}
