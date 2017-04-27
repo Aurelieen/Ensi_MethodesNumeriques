@@ -108,83 +108,52 @@
 
 \vspace{1cm}
 
-Question 2.
+Question2:
 
-La matrice est à diagonale dominante en effet $|-(C_{i+1/2} + C_{i-1/2})| \ge |C_{i+1/2}| + |C_{i-1/2}| $
-Car les C sont tous positifs.
-
-La matrice est donc symétrique et positive.
-
-Pour montrer qu'elle est définie, il faut montrer que 0 n'est pas valeur propre et que la matrice est donc inversible.
-$$
-A_n(\lambda)
-\begin{vmatrix}
-  C_{1 + 1/2} + C_{1 - 1/2} - \lambda & -C_{1 + 1/2} & & 0\\
-  -C_{2 - 1/2} & \ddots & \ddots &  \\
-  & \ddots & \ddots &  -C_{(n - 1) + 1/2} \\
-  0 &  & -C_{n - 1/2} & C_{n + 1/2} + C_{n - 1/2} - \lambda
-\end{vmatrix}
-  $$
-
-On développe le déterminant par le bas.
-
-\begin{equation*}
-\begin{split}
-A_n(\lambda) =
-(C_{n + 1/2} + C_{n - 1/2} - \lambda)
-\begin{vmatrix}
-  C_{1 + 1/2} + C_{1 - 1/2} - \lambda & -C_{1 + 1/2} & & 0\\
-  -C_{2 - 1/2} & \ddots & \ddots &  \\
-  & \ddots & \ddots &  -C_{(n - 2) + 1/2} \\
-  0 &  0 & -C_{n - 1 - 1/2} & C_{n - 1 + 1/2} + C_{n - 1 - 1/2} - \lambda
-\end{vmatrix} \\
-\quad
-+C_{n - 1/2}
-\begin{vmatrix}
-  C_{1 + 1/2} + C_{1 - 1/2} - \lambda & -C_{1 + 1/2} & & 0\\
-  -C_{2 - 1/2} & \ddots & \ddots &  \\
-  & \ddots &  C_{n - 2 + 1/2} + C_{n - 2 - 1/2} - \lambda & 0 \\
-  0 &  \ddots & -C_{n - 1 - 1/2} & -C_{n - 1 + 1/2}
-\end{vmatrix}
-\end{split}
-\end{equation*}
-
-  \begin{equation*}
-  \begin{split}
-  A_n(\lambda) =
-  (C_{n + 1/2} + C_{n - 1/2} - \lambda)
-  \begin{vmatrix}
-    C_{1 + 1/2} + C_{1 - 1/2} - \lambda & -C_{1 + 1/2} & & 0\\
-    -C_{2 - 1/2} & \ddots & \ddots &  \\
-    & \ddots & \ddots &  -C_{(n - 1) + 1/2}\\
-    0 &  0 & -C_{n - 1 - 1/2} & C_{n - 1 + 1/2} + C_{n - 1 - 1/2} - \lambda
-  \end{vmatrix} \\
-\quad
-  -C_{n - 1/2}^{2}
-\begin{vmatrix}
-    C_{1 + 1/2} + C_{1 - 1/2} - \lambda & -C_{1 + 1/2} & & 0\\
-    -C_{2 - 1/2} & \ddots & \ddots &  \\
-    & \ddots & \ddots &  -C_{(n - 3) + 1/2} \\
-    0 &  & -C_{n - 2 -1/2} & C_{n - 2 + 1/2} + C_{n - 2 - 1/2} - \lambda
-  \end{vmatrix}
-  \end{split}
-\end{equation*}
-
-Donc $A_n(\lambda) = (C_{n + 1/2} + C_{n - 1/2} - \lambda) A_{n-1}(\lambda) -C_{n - 1/2}^{2} A_{n-2}(\lambda) $
-
-
-
-
+Soit $x = (x_1, x_2, ... , x_n)$
+\newline
+$x^TAx = \sum\limits_{i = 1}^{n} (C_{i+1/2} + C_{i-1/2}) x_i^2 - 2 \sum\limits_{i = 1}^{n-1} C_{i+1/2} x_i x_{i+1} $
+\newline
+$ = \sum\limits_{i = 1}^{n} C_{i+1/2} x_i^2 + \sum\limits_{j = 0}^{n-1} C_{j+1/2} x_{j+1}^2  + - 2 \sum\limits_{i = 1}^{n-1} C_{i+1/2} x_i x_{i+1} $ On pose j = i-1
+\newline
+$ = \sum\limits_{i = 1}^{n-1} C_{i+1/2} (x_i - x_{i+1})^2 + C_{1/2} x_{1/2}^2 + C_{n + 1/2} x_{n}^2 > 0 $
+\newline
+Comme $x^TAx > 0 \forall x \in \R ^n $ alors la matrice A est symétrique définie positive.
+\newline
 
 
 \section{Factorisation de Cholesky dans le cas tridiagonal}
 
 \section{Problème stationnaire}
 
+Question 6.
 
-D'après (9):
-$ \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}](x_i, t_k) = \frac{C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)}+C_{i-1/2}u_{i-1}^{k}}{\delta^{2}} $
-Pour résoudre (13), on résout 9 pour chaque coefficient $u_i^{k}$
+D'après l'équation (9),
+\newline
+$ \frac{\partial }{\partial x} [C(x)\frac{\partial u }{\partial x}](x_i, t_k) \approx \frac{C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)} + C_{i-1/2}u_{i-1}^{(k)}}{\delta_x^2} $
+\newline
+Si on écrit ce système, $\forall i $ sous forme matricielle, on obtient:
+\newline
+$ \frac{\partial }{\partial x} [C(x)\frac{\partial u }{\partial x}] = \frac{1}{\delta ^2} (-A u +
+\overset{U} {
+    \begin{pmatrix}
+        u_0 C_{1/2} \\
+        0 \\
+        0 \\
+        0 \\
+    \end{pmatrix}
+})$
+car $u(-l) = u_0$
+avec $u = (u_1^{(k)}, ... , u_n^{(k)}) $
+et A la matrice trouvée à la question 1.
+\newline
+Donc A u = B, avec $B = (b_0, ..., b_n)$
+où, $b_0 = C_{1/2} u_0$
+et $b_i = 0$  $\forall i \in [2, n] $
+\newline
+
+Ce système admet une solution unique car A est définie et donc inversible.
+\newline
 
 Question 7.
 
@@ -226,6 +195,21 @@ $u(x) = -\frac{e}{e^{-1} - e} + \frac{1}{e^{-1} - e} e^{\frac{x}{l}} $
 
 \section{\'{E}volution d'une donnée stationnaire}
 
+Question 8.
+\newline
+Question 9.
+
+$M U^{(k+1)} = NU^{(k)} + \mu B$
+Cette méthode de décomposition converge uniquement si $\rho(M^{-1}N) < 1$, ce qui est le cas ici(question 8).
+\newline
+Cette décomposition converge vers $Ax = b$, avec A = M - N.
+\newline
+$M - N = I + \theta \mu A - I - (\theta - 1) \mu A$
+$ = \mu A $
+\newline
+$\mu A x = \mu B$
+$A x = B$
+On retrouve ici les matrices A et B de la question (6).
 \section{\'{E}tude du problème inverse}
 
 \section*{Annexes}
