@@ -43,6 +43,10 @@
 \setlength{\parindent}{0pt}
 \newcommand*\biggestpart{}
 
+\newenvironment{spmatrix}[1]
+ {\def\mysubscript{#1}\mathop\bgroup\begin{pmatrix}}
+ {\end{pmatrix}\egroup_{\textstyle\mathstrut\mysubscript}}
+
 \theoremstyle{nonumberplain}
 \newmdtheoremenv[%
   backgroundcolor=gray!10,
@@ -81,28 +85,25 @@
 
     \begin{calculs}
         \begin{align*}
-            \overset{I} {
-                \begin{pmatrix}
-                    1 & 0 & \dotsb & 0 \\
-                    0 & 1 & \dotsb & 0 \\
-                    \vdots & \vdots & \ddots & \vdots \\
-                    0 & 0 & \dotsb & 1 \\
-                \end{pmatrix}
-            } + \theta\mu \overset{A} {
-                \begin{pmatrix}
-                    C_{1 + 1/2} + C_{1 - 1/2} & -C_{1 + 1/2} & & 0\\
-                    -C_{2 - 1/2} & \ddots & \ddots &  \\
-                    & \ddots & \ddots &  -C_{(n - 1) + 1/2} \\
-                    0 &  & -C_{n - 1/2} & C_{n + 1/2} + C_{n - 1/2}
-                \end{pmatrix}
-            } \cdot \overset{U} {
-                \begin{pmatrix}
-                    u \\
-                    u \\
-                    u \\
-                    u \\
-                \end{pmatrix}
-            }
+            \renewcommand\arraystretch{1.3}
+            \Biggr( \begin{spmatrix}{I}
+                1 & 0 & \dotsb & 0 \\
+                0 & 1 & \dotsb & 0 \\
+                \vdots & \vdots & \ddots & \vdots \\
+                0 & 0 & \dotsb & 1 \\
+            \end{spmatrix}
+            + \theta\mu \begin{spmatrix}{A}
+                C_{1 + 1/2} + C_{1 - 1/2} & -C_{1 + 1/2} & & 0\\
+                -C_{2 - 1/2} & \ddots & \ddots &  \\
+                & \ddots & \ddots &  -C_{(n - 1) + 1/2} \\
+                0 &  & -C_{n - 1/2} & C_{n + 1/2} + C_{n - 1/2}
+            \end{spmatrix} \Biggr)
+            \begin{spmatrix}{U}
+                u_{1}^{(k + 1)} \\
+                u_{2}^{(k + 1)} \\
+                \vdots \\
+                u_{n}^{(k + 1)} \\
+            \end{spmatrix}
         \end{align*}
     \end{calculs}
 
@@ -112,7 +113,7 @@
 
 D'après (9):
 $ \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}](x_i, t_k) = \frac{
-C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)}+C_{i-1/2}u_{i-1}^{k}}{\delta^{2}}}$
+C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)}+C_{i-1/2}u_{i-1}^{k}}{\delta^{2}}$
 Pour résoudre (13), on résout 9 pour chaque coefficient $u_i^{k}$
 \section{Problème stationnaire}
 
