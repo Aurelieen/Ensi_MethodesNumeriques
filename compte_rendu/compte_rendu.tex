@@ -197,6 +197,24 @@ $u(x) = -\frac{e}{e^{-1} - e} + \frac{1}{e^{-1} - e} e^{\frac{x}{l}} $
 
 Question 8.
 \newline
+
+$M = I+ \theta \mu A$ et $N = I+(\theta - 1)\mu A$
+\newline
+M et N sont donc des polynomes de matrices.
+\newline
+Donc, soit $x_A$ un vecteur propre de A et $\lambda_A$ une valeur propre de A,
+alors $x_A$ est aussi un vecteur propre de M avec comme valeur propre $M\lambda_A$
+\newline
+Les valeurs propres de M sont $\lambda_M = 1+\theta \mu \lambda_A$.
+\newline
+Les valeurs propres de N sont $\lambda_N = 1+(\theta - 1)\mu \lambda_A$
+\newline
+Les valeurs propres de $M^{-1}N$ sont $\frac{\lambda_N}{\lambda_M} = \frac{1+(\theta - 1)\mu \lambda_A}{1+\theta \mu \lambda_A}$ $\forall \lambda_A$.
+$ 1+(\theta - 1)\mu \lambda_A < 1+\theta \mu \lambda_A$
+\newline
+Donc $\rho(M^{-1}N) = max(\frac{\lambda_N}{\lambda_M}) < 1$
+\newline
+\newline
 Question 9.
 
 $M U^{(k+1)} = NU^{(k)} + \mu B$
