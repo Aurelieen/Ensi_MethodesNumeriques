@@ -236,42 +236,81 @@
       \end{pmatrix}
       \]
 
-      \begin{ref_scilab}
-          \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
-          \emph{Pour calculer et vérifier cet exemple, cf.} \texttt{\emph{Q5\_Exemple\_Cholesky.sce}}
-      \end{ref_scilab}
+    \begin{ref_scilab}
+        \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
+        \emph{Pour calculer et vérifier cet exemple, cf.} \texttt{\emph{Q5\_Exemple\_Cholesky.sce}}
+    \end{ref_scilab}
 
 \section{Problème stationnaire}
 
-    \quest{QUESTION 6}. 
-Question 6.
+    \quest{QUESTION 6}. L'équation $(9)$ de l'énoncé fournit une appromixation du système $(13)$ :
+        $$ \frac{\partial }{\partial x} [C(x)\frac{\partial u }{\partial x}](x_i, t_k) \approx \frac{C_{i+1/2}\ u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})\ u_i^{(k)} + C_{i-1/2}\ u_{i-1}^{(k)}}{\delta_x^2} $$
 
-D'après l'équation (9),
-\newline
-$ \frac{\partial }{\partial x} [C(x)\frac{\partial u }{\partial x}](x_i, t_k) \approx \frac{C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)} + C_{i-1/2}u_{i-1}^{(k)}}{\delta_x^2} $
-\newline
-Si on écrit ce système, $\forall i $ sous forme matricielle, on obtient:
-\newline
-$ \frac{\partial }{\partial x} [C(x)\frac{\partial u }{\partial x}] = \frac{1}{\delta ^2} (-A u +
-\overset{U} {
-    \begin{pmatrix}
-        u_0 C_{1/2} \\
-        0 \\
-        0 \\
-        0 \\
-    \end{pmatrix}
-})$
-car $u(-l) = u_0$
-avec $u = (u_1^{(k)}, ... , u_n^{(k)}) $
-et A la matrice trouvée à la question 1.
-\newline
-Donc A u = B, avec $B = (b_0, ..., b_n)$
-où, $b_0 = C_{1/2} u_0$
-et $b_i = 0$  $\forall i \in [2, n] $
-\newline
+    En écrivant ce système sous forme matricielle pour tout $\forall i \in \llbracket 1; n \rrbracket$, on obtient :
+    \begin{calculs}
+        $$ \frac{\partial }{\partial x} [C(x)\frac{\partial u }{\partial x}] = \frac{1}{\delta_{x}^2} (-A u + B) = 0
+        \iff
+        A u = B
+        $$
+    \end{calculs}
 
-Ce système admet une solution unique car A est définie et donc inversible.
-\newline
+    où, par identification :
+    \begin{itemize}
+        \item $A$ est la matrice tridiagonale, symétrique et définie positive de la \quest{question 1} ;
+        \item $u$ est la matrice-colonne des $u_i^{(k)}$ à l'itération $k$ ;
+        \item $B$ est la matrice-colonne des conditions aux limites déterminée de la façon suivante :
+    \end{itemize}
+
+    \bigskip
+    \textbf{Pour }$\mathbf{i = 1}$.
+    \begin{calculs}
+        $\begin{aligned}[t]
+            (Au)_{1} & = -C_{3/2}\ u_{2}^{(k)} + (C_{3/2} + C_{1/2})\ u_1^{(k)} \\
+                     &\iff (B)_{1} = C_{1/2}\ u_{0}
+        \end{aligned}$
+    \end{calculs}
+
+    \smallskip
+    \textbf{Pour }$\mathbf{i > 1}$.
+    \begin{calculs}
+        $\begin{aligned}[t]
+            (Au)_{i} & = -C_{i+1/2}\ u_{i+1}^{(k)} + (C_{i+1/2} + C_{i-1/2})\ u_i^{(k)} - C_{i-1/2}\ u_{i-1}^{(k)} \\
+                     & = \frac{\delta_{x}^2}{\delta_{x}^2} (-C_{i+1/2}\ u_{i+1}^{(k)} + (C_{i+1/2} + C_{i-1/2})\ u_i^{(k)} - C_{i-1/2}\ u_{i-1}^{(k)}) \\
+                     & \simeq \delta_{x}^2 \cdot 0 \\
+                     &\iff (B)_{i} = 0\ \forall i \in \llbracket 2; n \rrbracket
+        \end{aligned}$
+    \end{calculs}
+
+    La matrice-colonne $B$ est celle de la \quest{question 1} avec la fonction $u_0$ constante.\newline\newline
+    Puisque $A$ est définie positive, elle n'admet pas $0$ comme valeur propre.\newline
+    Elle est donc inversible et le système $A u = B$ possède par conséquent une unique solution.\newline
+
+    \bigskip
+    \quest{QUESTION 7}. Solution exacte du problème stationnaire et convergence.
+    \begin{ref_scilab}
+        \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
+        \emph{Se référer à :} \texttt{\emph{Q7\_Probleme\_stationnaire.sce}}
+    \end{ref_scilab}
+
+    % On résout l'équation $\forall x \in\ ]-l; l[$ :
+    % $$
+    % \begin{cases}
+    %     \displaystyle
+    %     \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}] = 0 \\
+    %     u(-l) = u_0 \\
+    %     u(l) = 0
+    % \end{cases}
+    % $$
+
+    \begin{calculs}
+        \begin{equation*}
+        \begin{split}
+            \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}] = 0 & \iff
+            -\frac{1}{l} \exp(-\frac{x}{l})\ \frac{\partial u}{\partial x} + \exp(-\frac{x}{l})\ \frac{\partial^2 u }{\partial x^2} = 0 \\
+            & \iff \frac{\partial^2 u}{\partial x^2} - \frac{1}{l} \frac{\partial u}{\partial x} = 0
+        \end{split}
+        \end{equation*}
+    \end{calculs}
 
 Question 7.
 
@@ -310,6 +349,8 @@ $$
 
 Donc :
 $u(x) = -\frac{e}{e^{-1} - e} + \frac{1}{e^{-1} - e} e^{\frac{x}{l}} $
+
+
 
 \section{\'{E}volution d'une donnée stationnaire}
 
@@ -640,4 +681,44 @@ On retrouve ici les matrices A et B de la question (6).
     $ \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}](x_i, t_k) = \frac{
     C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)}+C_{i-1/2}u_{i-1}^{k}}{\delta^{2}}$
     Pour résoudre (13), on résout 9 pour chaque coefficient $u_i^{k}$
+
+    $$
+    \overset{B} {
+        \begin{pmatrix}
+            u_0 C_{1/2} \\
+            0 \\
+            0 \\
+            0 \\
+        \end{pmatrix}
+    }
+    $$
+
+    Question 6.
+
+    D'après l'équation (9),
+    \newline
+    $ \frac{\partial }{\partial x} [C(x)\frac{\partial u }{\partial x}](x_i, t_k) \approx \frac{C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)} + C_{i-1/2}u_{i-1}^{(k)}}{\delta_x^2} $
+    \newline
+    Si on écrit ce système, $\forall i $ sous forme matricielle, on obtient:
+    \newline
+    $ \frac{\partial }{\partial x} [C(x)\frac{\partial u }{\partial x}] = \frac{1}{\delta ^2} (-A u +
+    \overset{B} {
+        \begin{pmatrix}
+            u_0 C_{1/2} \\
+            0 \\
+            0 \\
+            0 \\
+        \end{pmatrix}
+    })$
+    car $u(-l) = u_0$
+    avec $u = (u_1^{(k)}, ... , u_n^{(k)}) $
+    et A la matrice trouvée à la question 1.
+    \newline
+    Donc A u = B, avec $B = (b_0, ..., b_n)$
+    où, $b_0 = C_{1/2} u_0$
+    et $b_i = 0$  $\forall i \in [2, n] $
+    \newline
+
+    Ce système admet une solution unique car A est définie et donc inversible.
+    \newline
 \end{document}

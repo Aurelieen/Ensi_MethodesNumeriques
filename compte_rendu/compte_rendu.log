@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.29)  29 APR 2017 16:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.29)  29 APR 2017 22:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -977,62 +977,77 @@ File: images/logo_scilab.png Graphic file (type png)
 <use images/logo_scilab.png>
 Package pdftex.def Info: images/logo_scilab.png used on input line 240.
 (pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 249--272
-
- []
-
-[2 <./images/logo_scilab.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 273--275
+ [2 <./images/logo_scilab.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 284--287
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--318
+Underfull \hbox (badness 10000) in paragraph at lines 284--287
+
+ []
+
+File: images/logo_scilab.png Graphic file (type png)
+<use images/logo_scilab.png>
+Package pdftex.def Info: images/logo_scilab.png used on input line 291.
+(pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 357--359
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--337
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 364--367
+Underfull \hbox (badness 10000) in paragraph at lines 360--378
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 384--385
+Underfull \hbox (badness 10000) in paragraph at lines 405--408
 
  []
 
-[5]
-Overfull \hbox (1.47049pt too wide) in paragraph at lines 455--458
+
+Underfull \hbox (badness 10000) in paragraph at lines 425--426
+
+ []
+
+[5] [6]
+Overfull \hbox (1.47049pt too wide) in paragraph at lines 496--499
 []\T1/cmr/m/n/10.95 Le ré-sul-tat de la fonc-tion \T1/cmtt/m/n/10.95 integrale2
  \T1/cmr/m/n/10.95 est plus cré-dible que ce-lui de la fonc-tion \T1/cmtt/m/n/1
 0.95 integrale1\T1/cmr/m/n/10.95 .
  []
 
-[6] [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 628--638
+[7] [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 669--679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 698--721
 
  []
 
 \tf@thm=\write3
 \openout3 = `compte_rendu.thm'.
 
-[9] (./compte_rendu.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 722--724
+
+ []
+
+[10] (./compte_rendu.aux) ) 
 Here is how much of TeX's memory you used:
- 15234 strings out of 493013
- 260776 string characters out of 6133328
- 330935 words of memory out of 5000000
- 18589 multiletter control sequences out of 15000+600000
- 22580 words of font info for 59 fonts, out of 8000000 for 9000
+ 15240 strings out of 493013
+ 260838 string characters out of 6133328
+ 329935 words of memory out of 5000000
+ 18592 multiletter control sequences out of 15000+600000
+ 23509 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,18n,44p,10432b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/c
-m-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/
+cm-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
@@ -1057,10 +1072,10 @@ al/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local
 exlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texli
 ve/2016/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb>
-Output written on compte_rendu.pdf (9 pages, 365104 bytes).
+Output written on compte_rendu.pdf (10 pages, 380838 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 146 PDF objects out of 1000 (max. 8388607)
+ 104 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
