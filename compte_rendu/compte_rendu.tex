@@ -56,6 +56,15 @@
   rightline=false,
   bottomline=false]{calculs}{}
 
+\theoremstyle{nonumberplain}
+\newmdtheoremenv[%
+  backgroundcolor=blue!10,
+  linecolor=blue!75,
+  linewidth=2pt,
+  topline=false,
+  rightline=false,
+  bottomline=false]{ref_scilab}{}
+
 \title{Compte-rendu en \textit{Méthodes numériques de base} \\
 \textbf{Résultats sur l'identification de conductivité}}
 \author{Aurélien PEPIN, Antonin KLOPP-TOSSER}
@@ -142,39 +151,99 @@
     \medskip
     Le terme $B_{1}^{(k)}$ exprime les conditions aux limites.
 
+    \newpage
     \quest{QUESTION 2}. Une matrice $M$ est dite définie positive si, pour toute matrice-colonne non nulle $x$ à coefficients réels, $^txMx > 0$.
     Soit $x = (x_1, x_2, ... , x_n)$ non nul :
 
-    \begin{equation*}
-    \begin{split}
-        ^txMx   & = \sum\limits_{i = 1}^{n} (C_{i+1/2} + C_{i-1/2}) x_i^2\ -\ 2 \sum\limits_{i = 1}^{n-1}C_{i+1/2}\ x_i\ x_{i+1} \\
-                & = \sum\limits_{i = 1}^{n} C_{i+1/2} x_i^2 + \sum\limits_{j = 0}^{n-1} C_{j+1/2} x_{j+1}^2  + - 2 \sum\limits_{i = 1}^{n-1} C_{i+1/2} x_i x_{i+1} \\
-                & = e - n\int_{0}^{1} x^{n-1}e^{x} dx \\
-                & = e - n I_{n-1}
-    \end{split}
-    \end{equation*}
+    \begin{calculs}
+      \begin{equation*}
+      \begin{split}
+          ^txAx   & = \sum\limits_{i = 1}^{n} (C_{i+1/2} + C_{i-1/2}) x_i^2\ -\ 2 \sum\limits_{i = 1}^{n-1}C_{i+1/2}\ x_i\ x_{i+1}
+      \end{split}
+      \end{equation*}
+      {\normalfont On pose} $j = i - 1$ {\normalfont en développant le premier terme :}
+      \begin{equation}
+      \begin{split}
+          ^txAx   & = \sum\limits_{i = 1}^{n} C_{i+1/2}\ x_i^2 + \sum\limits_{j = 0}^{n-1} C_{j+1/2}\ x_{j+1}^2  - 2 \sum\limits_{i = 1}^{n-1} C_{i+1/2}\ x_i\ x_{i+1} \\
+                  & = \sum\limits_{i = 1}^{n-1} C_{i+1/2} (x_i - x_{i+1})^2 + C_{1/2}\ x_{1/2}^2 + C_{n + 1/2}\ x_{n}^2 \\
+      \end{split}
+      \end{equation}
+      {\normalfont La fonction} $C(x)$ {\normalfont est strictement positive par définition donc}
+      $^txAx > 0\ \forall x$ {\normalfont non nul}.\newline
+      {\normalfont La matrice $A$ est bien définie positive.}
+    \end{calculs}
 
-
-Soit $x = (x_1, x_2, ... , x_n)$
-\newline
-$x^TAx = \sum\limits_{i = 1}^{n} (C_{i+1/2} + C_{i-1/2}) x_i^2 - 2 \sum\limits_{i = 1}^{n-1} C_{i+1/2} x_i x_{i+1} $
-\newline
-$ = \sum\limits_{i = 1}^{n} C_{i+1/2} x_i^2 + \sum\limits_{j = 0}^{n-1} C_{j+1/2} x_{j+1}^2  + - 2 \sum\limits_{i = 1}^{n-1} C_{i+1/2} x_i x_{i+1} $ On pose j = i-1
-\newline
-$ = \sum\limits_{i = 1}^{n-1} C_{i+1/2} (x_i - x_{i+1})^2 + C_{1/2} x_{1/2}^2 + C_{n + 1/2} x_{n}^2 > 0 $
-\newline
-Comme $x^TAx > 0 \forall x \in \R ^n $ alors la matrice A est symétrique définie positive.
-\newline
-
-
+\smallskip
 \section{Factorisation de Cholesky dans le cas tridiagonal}
 
-D'après (9):
-$ \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}](x_i, t_k) = \frac{
-C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)}+C_{i-1/2}u_{i-1}^{k}}{\delta^{2}}$
-Pour résoudre (13), on résout 9 pour chaque coefficient $u_i^{k}$
+    \quest{QUESTION 3}. Phase de factorisation de Cholesky.
+    \begin{ref_scilab}
+        \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
+        \emph{Se référer à :} \texttt{\emph{Q3\_Factorisation\_Cholesky.sce}}
+    \end{ref_scilab}
+    La décomposition de Cholesky permet ensuite de résoudre des systèmes
+    linéaires en une phase de descente puis une phase de remontée.
+
+    \bigskip
+    \quest{QUESTION 4}. Première phase de descente.
+    \begin{ref_scilab}
+        \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
+        \emph{Se référer à :} \texttt{\emph{Q4\_Descente\_Cholesky.sce}}
+    \end{ref_scilab}
+
+    \bigskip
+    \quest{QUESTION 5}. Seconde phase de remontée.
+    \begin{ref_scilab}
+        \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
+        \emph{Se référer à :} \texttt{\emph{Q5\_Remontee\_Cholesky.sce}}
+    \end{ref_scilab}
+
+    On peut appliquer dans l'ordre ces trois fonctions pour résoudre l'exemple ci-dessous, noté $MX = B$.
+    Le TD 5 a montré que la matrice $M$ était aussi symétrique définie positive
+    donc elle admet une unique factorisation de Cholesky.
+
+      \[
+      \begin{pmatrix}
+          1   &   -1    &   0     &   0     &   0   \\
+          -1  &   2     &   -1    &   0     &   0   \\
+          0   &   -1    &   2     &   -1    &   0   \\
+          0   &   0     &   -1    &   2     &   -1  \\
+          0   &   0     &   0     &   -1    &   2   \\
+      \end{pmatrix}
+      \begin{pmatrix}
+          x_1 \\
+          x_2 \\
+          x_3 \\
+          x_4 \\
+          x_5 \\
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+          10 \\
+          20 \\
+          30 \\
+          40 \\
+          50 \\
+      \end{pmatrix}
+      \text{ où la solution est }
+      X =
+      \begin{pmatrix}
+          350 \\
+          340 \\
+          310 \\
+          250 \\
+          210 \\
+      \end{pmatrix}
+      \]
+
+      \begin{ref_scilab}
+          \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
+          \emph{Pour calculer et vérifier cet exemple, cf.} \texttt{\emph{Q5\_Exemple\_Cholesky.sce}}
+      \end{ref_scilab}
+
 \section{Problème stationnaire}
 
+    \quest{QUESTION 6}. 
 Question 6.
 
 D'après l'équation (9),
@@ -553,4 +622,22 @@ On retrouve ici les matrices A et B de la question (6).
 
         On en déduit donc que $\lambda \ne 0$. Puisque toutes les valeurs propres de la matrice $A$ sont différentes de $0$, la matrice $A$ est \textbf{inversible}.
     \end{enumerate}
+
+    \section{RESTE}
+
+    Soit $x = (x_1, x_2, ... , x_n)$
+    \newline
+    $x^TAx = \sum\limits_{i = 1}^{n} (C_{i+1/2} + C_{i-1/2}) x_i^2 - 2 \sum\limits_{i = 1}^{n-1} C_{i+1/2} x_i x_{i+1} $
+    \newline
+    $ = \sum\limits_{i = 1}^{n} C_{i+1/2} x_i^2 + \sum\limits_{j = 0}^{n-1} C_{j+1/2} x_{j+1}^2  + - 2 \sum\limits_{i = 1}^{n-1} C_{i+1/2} x_i x_{i+1} $ On pose j = i-1
+    \newline
+    $ = \sum\limits_{i = 1}^{n-1} C_{i+1/2} (x_i - x_{i+1})^2 + C_{1/2} x_{1/2}^2 + C_{n + 1/2} x_{n}^2 > 0 $
+    \newline
+    Comme $x^TAx > 0 \forall x \in \R ^n $ alors la matrice A est symétrique définie positive.
+    \newline
+
+    D'après (9):
+    $ \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}](x_i, t_k) = \frac{
+    C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)}+C_{i-1/2}u_{i-1}^{k}}{\delta^{2}}$
+    Pour résoudre (13), on résout 9 pour chaque coefficient $u_i^{k}$
 \end{document}
