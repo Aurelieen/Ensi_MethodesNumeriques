@@ -103,6 +103,7 @@ for j = 1:k
         resultat_remonte = remonte(m_factorise_diag, m_factorise_inf, calcul_B(n, u0, j, deltaT, theta));
         u0 = resultat_remonte;
     end
+    disp(u0);
     result(j) = u0(1);
 end
 
