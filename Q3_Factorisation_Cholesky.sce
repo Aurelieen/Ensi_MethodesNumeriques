@@ -41,11 +41,11 @@ endfunction
 // EXEMPLES D'UTILISATION
 // Exemple du TD5, Exercice 1, Question 3
 // Entrées :
-m_diag_td5 = [1, 2, 2, 2, 2];
-m_inf_td5 = [-1, -1, -1, -1];
+// m_diag_td5 = [1, 2, 2, 2, 2];
+// m_inf_td5 = [-1, -1, -1, -1];
 
 // Sorties :
-[l_diag_td5, l_inf_td5] = factorise(m_diag_td5, m_inf_td5);
-disp(l_diag_td5, "l_diag_td5. Attendu : [1, 1, 1, 1, 1]");   // [1, 1, 1, 1, 1]
-disp(l_inf_td5, "l_inf_td5. Attendu : [-1, -1, -1, -1]");    // [-1, -1, -1, -1]
+// [l_diag_td5, l_inf_td5] = factorise(m_diag_td5, m_inf_td5);
+// disp(l_diag_td5, "l_diag_td5. Attendu : [1, 1, 1, 1, 1]");   // [1, 1, 1, 1, 1]
+// disp(l_inf_td5, "l_inf_td5. Attendu : [-1, -1, -1, -1]");    // [-1, -1, -1, -1]
 

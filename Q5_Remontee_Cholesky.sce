@@ -23,7 +23,7 @@ funcprot(0)
 function x = remonte(l_diag, l_inf, z)
     n = length(l_diag);
     x = zeros(n, 1);
-    
+
     // TODO. A commenter.
     x(n) = z(n) / l_diag(n)
     for j = (n - 1):-1:1

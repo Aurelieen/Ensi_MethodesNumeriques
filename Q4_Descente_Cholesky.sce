@@ -23,14 +23,13 @@ funcprot(0)
 function z = descente(l_diag, l_inf, y)
     n = length(l_diag);
     z = zeros(n, 1);
-    
+
     // Comme L est une matrice bidiagonale, la résolution du système
     // s'en trouve encore très simplifiée : coût en temps de Θ(n). La
     // relation de la récurrence est définie de la façon suivante :
     // z[1] = y[1] / L[1, 1]
     // z[j] = (y[j] - L[j + 1, j] * z[j - 1]) / L[j, j]
     z(1) = y(1) / l_diag(1);
-    
     for j = 2:n
         z(j) = (y(j) - l_inf(j - 1) * z(j - 1)) / l_diag(j);
     end

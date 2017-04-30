@@ -3,7 +3,7 @@
 exec("Q3_Factorisation_Cholesky.sce"); 
 exec("Q5_Remontee_Cholesky.sce"); 
 exec("Q4_Descente_Cholesky.sce"); 
-//exec("Q7.sce"); 
+exec("Q7.sce"); 
 
 // Calcul de la matrice M
 function [result_matrice_M_diag, result_matrice_M_inf] = matrice_M(n, theta, mu)
