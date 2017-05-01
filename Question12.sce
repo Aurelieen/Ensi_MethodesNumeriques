@@ -1,7 +1,7 @@
 // Question 12
 
 function [result_J] = calcul_J(x_d)
-    result_J = norm(flux(x_d) - [-0.1, -0.18])/norm([-0.1; -0.18]); 
+    result_J = (norm(flux(x_d) - [-0.1, -0.18])/norm([-0.1; -0.18]))^2; 
 endfunction
 
 echantillonage = 50;
