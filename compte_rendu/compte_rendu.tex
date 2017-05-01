@@ -434,7 +434,31 @@
     $A$ et $B$ sont les matrices de la \textbf{question 6} donc la solution
     discrétisée converge bien vers la solution stationnaire.
 
+    \newpage\quest{QUESTION 10}. Dans le graphique ci-dessous, on trace en bleu la solution
+    stationnaire trouvée dans la \textbf{question 6}. Puis on trace en
+    rouge la solution approchée à différents pas $t_k$.
+
+    \begin{ref_scilab}
+        \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
+        \emph{Se référer à :} \texttt{\emph{Q10\_CrankNicolson.sce}}
+    \end{ref_scilab}
+
+    \smallskip
+    On choisit les paramètres suivants :
+    \begin{itemize}
+        \item $n = 100$, nombre de points de discrétisation de la grille ;
+        \item $n_t = 6000$, nombre d'itérations assez grand pour approcher de près la solution exacte ;
+        \item $T = 500$, ce qui donne un pas de temps $\delta_t \simeq 0.083$.
+    \end{itemize}
+
+    \begin{center}
+        \includegraphics[scale=0.5]{images/q10_approche2.png}
+    \end{center}
+
+\medskip
 \section{\'{E}tude du problème inverse}
+
+    \quest{QUESTION 11}.
 
 
 Question 13.
