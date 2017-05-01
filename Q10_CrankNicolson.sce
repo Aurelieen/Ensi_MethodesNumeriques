@@ -150,7 +150,7 @@ function question_10()
     // Affichage graphique
     plot(intervalle_x, probleme_stationnaire);
     xtitle("Représentation à différents pas de temps de la solution numérique convergeant vers la solution graphique");
-    legends(["Solution stationnaire", "Solution approchée"], "piapiapia");
+    legends(["Solution stationnaire", "Solution approchée"], "");
 endfunction
 
 

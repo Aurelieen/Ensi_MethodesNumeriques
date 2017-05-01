@@ -455,14 +455,28 @@
         \includegraphics[scale=0.5]{images/q10_approche2.png}
     \end{center}
 
+    Quand $k \rightarrow +\infty$, $U^{(k)}$ tend effectivement vers la solution stationnaire.
+    La convergence de la méthode de Crank-Nicolson est rapide : sur le
+    graphique, la deuxième mesure, déjà éloignée de $U^{(0)}$, a été relevée à $k = 200$. Chaque courbe rouge
+    correspond à $200$ itérations supplémentaires.
+
 \medskip
 \section{\'{E}tude du problème inverse}
 
-    \quest{QUESTION 11}.
+    \quest{QUESTION 11}. Mesure du flux à $t_{inter} = \frac{2}{3} T$ et $t_{fin} = T$.
+    \begin{ref_scilab}
+        \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
+        \emph{Se référer à :} \texttt{\emph{Q11\_Flux.sce}}
+    \end{ref_scilab}
 
+La fonction \texttt{flux(x\_d)} est gourmande en temps.
+Sa complexité temporelle est en $O(n_t \cdot n)$ mais elle cache trois
+étapes en $O(n)$ : le calcul du second membre, la descente et la remontée.
 
-Question 13.
-\newline
+\medskip
+On en optimise pour cela quelques parties comme le calcul du vecteur $B^{(k)}$ ramené
+au calcul de sa seule composante non nulle $B_1^{(k)}$. On économie ainsi de l'espace mémoire
+et $n$ itérations pour l'affectation.
 
 \section*{Annexes}
 
