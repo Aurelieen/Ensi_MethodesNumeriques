@@ -469,14 +469,20 @@
         \emph{Se référer à :} \texttt{\emph{Q11\_Flux.sce}}
     \end{ref_scilab}
 
-La fonction \texttt{flux(x\_d)} est gourmande en temps.
-Sa complexité temporelle est en $O(n_t \cdot n)$ mais elle cache trois
-étapes en $O(n)$ : le calcul du second membre, la descente et la remontée.
+    La fonction \texttt{flux(x\_d)} est gourmande en temps.
+    Sa complexité temporelle est en $O(n_t \cdot n)$ mais elle cache trois
+    étapes en $O(n)$ : le calcul du second membre, la descente et la remontée.
 
-\medskip
-On en optimise pour cela quelques parties comme le calcul du vecteur $B^{(k)}$ ramené
-au calcul de sa seule composante non nulle $B_1^{(k)}$. On économie ainsi de l'espace mémoire
-et $n$ itérations pour l'affectation.
+    \medskip
+    On en optimise pour cela quelques parties comme le calcul du vecteur $B^{(k)}$ ramené
+    au calcul de sa seule composante non nulle $B_1^{(k)}$. On économie ainsi de l'espace mémoire
+    et $n$ itérations pour l'affectation.
+
+    \newpage\quest{QUESTION 12}. Fonction $J$.
+    \begin{ref_scilab}
+        \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
+        \emph{Se référer à :} \texttt{\emph{Q12\_Fonction_J.sce}}
+    \end{ref_scilab}
 
 \section*{Annexes}
 
