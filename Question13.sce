@@ -9,11 +9,10 @@ exec("Q12_Fonction_J.sce");
 
 // Calcule trois flux à la fois
 function [J1, J2, J3] = trois_flux(liste_flux)
-    J1 = J(flux(liste_flux(1)));
-    J2 = J(flux(liste_flux(2)));
-    J3 = J(flux(liste_flux(3)));
+    J1 = J(liste_flux(1));
+    J2 = J(liste_flux(2));
+    J3 = J(liste_flux(3));
 
-    disp("J1J2J3", J1, J2, J3);
 endfunction
 
 // xd réultat
@@ -37,10 +36,12 @@ function [xd] = dichotomie(epsilon, fJ, J_depart, intervalle)
          if Jmin == J3 then
             intervalle(1) = intervalle(1) + (intervalle(2)-intervalle(1))/2;
         end
-
-        disp(intervalle);
-        delta = (intervalle(2) - intervalle(1)) / 4
+        delta = (intervalle(2) - intervalle(1))/4; 
         [J1, J2, J3] = fJ([intervalle(1) + delta * 1, intervalle(1) + delta * 2, intervalle(1) + delta * 3]);
+        
+        disp("J1 " + string(J1)); 
+        disp("J2 " + string(J2)); 
+        disp("J3 " + string(J3)); 
     end
 
     xd = (intervalle(2) + intervalle(1))/2;
@@ -55,7 +56,7 @@ function question13()
     x_d = dichotomie(epsilon, trois_flux, [J1, J2, J3], intervalle);
 
     // Résultat
-    disp("x_d*", x_d);
+    disp("xd" + string(x_d))
 endfunction
 
 question13()
