@@ -5,17 +5,31 @@ exec("Q11_Flux.sce");
 // Estimation initiale x0 ? 
 flux_cible = [-0.1, -0.18]; 
 
-function [] = minJ ()
-    xk = -6; 
+function [result_int] = mult_vecteurs(vecteur1, vecteur2)
+    result_int = vecteur1(1) * vecteur2(1) + vecteur1(2) * vecteur2(2); 
+    
+    
+endfunction
+
+function [xk] = minJ (x0)
+    xk = x0; 
     k = 0; 
-    J_xd = 1; 
-    while J_xd > 10^(-5)
-        flux_xk = flux(xk); 
-        flux_derive_xk = numderivative(flux, xk); 
-        delta_k = -flux_derive_xk'*(flux_xk - flux_cible)/(flux_xk' flux_derive_xk); 
+    J_xk = 1; 
+    while abs(J_xk) > 10^(-5)
+        [flux_xk_inter, flux_xk_fin] = flux(xk); 
+        flux_xk = [flux_xk_inter, flux_xk_fin]; 
+        [flux_derive_xk_inter, flux_derive_xk_fin] = numderivative(flux, xk); 
+        flux_xk_derive = [flux_derive_xk_inter, flux_derive_xk_fin]; 
+        delta_k = -mult_vecteurs(flux_xk_derive, (flux_xk - flux_cible))/mult_vecteurs(flux_xk, flux_xk_derive); 
         xk = xk + delta_k; 
         k = k+1; 
-        J_xd = 2* flux_derive_xd' (flux_xk - flux_cible)/(norm(-0.1,-0.18)); 
+        J_xk = 2* mult_vecteurs(flux_xk_derive, (flux_xk - flux_cible))/(0.1^2 + 0.18^2);
+        disp("xk " + string(xk)); 
     end
-    disp(xk); 
+    disp(k);
 endfunction
+
+minJ(-5); 
+minJ(-4);
+minJ(-3); 
+minJ(-2); 

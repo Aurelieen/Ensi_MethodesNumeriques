@@ -145,7 +145,7 @@ function [F_t_inter, F_t_fin] = flux(x_d)
         end
     end
 
-    disp((norm(-0.1 - F_t_inter, -0.18 - F_t_fin)/norm(-0.1, -0.18))^2);
+    //disp((norm(-0.1 - F_t_inter, -0.18 - F_t_fin)/norm(-0.1, -0.18))^2);
 endfunction
 
 
