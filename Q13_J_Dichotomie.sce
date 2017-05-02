@@ -5,7 +5,6 @@
 // :::::::::::::::::::::::::::::::::::::::::
 funcprot(0)
 exec("Q12_Fonction_J.sce");
-// Réponse à la question 13, fonction dichotomie.
 
 // Calcule trois flux à la fois
 function [J1, J2, J3] = trois_flux(liste_flux)

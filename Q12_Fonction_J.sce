@@ -7,7 +7,7 @@ funcprot(0);
 exec("Q11_Flux.sce");
 
 // CONSTANTES
-flux_cible = [-0.1, -0.18]
+flux_cible = [-0.1, -0.18];
 
 // Calcul de la norme euclidienne au carré
 function res = n2_carre(c1, c2)
@@ -35,4 +35,5 @@ function question12()
     plot(intervalle_xd, J)
 endfunction
 
+// A DECOMMENTER POUR TESTER LA QUESTION
 // question12()

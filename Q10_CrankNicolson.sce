@@ -3,7 +3,7 @@
 // ::     Question 10. Crank-Nicolson     ::
 // ::                                     ::
 // :::::::::::::::::::::::::::::::::::::::::
-funcprot(0)
+funcprot(0);
 exec("Q3_Factorisation_Cholesky.sce");
 exec("Q4_Descente_Cholesky.sce");
 exec("Q5_Remontee_Cholesky.sce");
@@ -113,15 +113,15 @@ endfunction
 function question_10()
     clf;
 
-    n = 100;                       // Nombre de pas d'espace
-    n_t = 6000;                    // Nombre d'itérations
-    T = 500;                       // Temps total
-    theta = 1/2;                   // Crank-Nicolson
+    n = 100;                            // Nombre de pas d'espace
+    n_t = 6000;                         // Nombre d'itérations
+    T = 500;                            // Temps total
+    theta = 1/2;                        // Crank-Nicolson
 
-    delta_t = T / n_t;          // Pas d'espace
-    delta_x = (2 * l)/(n + 1);  // Pas de temps
-    mu = delta_t / (delta_x^2);   // Rapport des pas
-    intervalle_x = -l:delta_x:l // Intervalle discrétisé
+    delta_t = T / n_t;                  // Pas d'espace
+    delta_x = (2 * l)/(n + 1);          // Pas de temps
+    mu = delta_t / (delta_x^2);         // Rapport des pas
+    intervalle_x = -l:delta_x:l         // Intervalle discrétisé
 
     // Pré-calcul de M et de N, fait une seule fois
     [M_diag, M_inf] = calcul_M(n, theta, mu);
@@ -130,7 +130,6 @@ function question_10()
 
     // Affichage de la solution
     U = zeros(n, 1);
-    a = gca();
 
     // Itérations
     for k = 0:n_t - 1
@@ -143,15 +142,13 @@ function question_10()
         // On affiche certaines valeurs
         if modulo(k, 200) == 0 then
             plot((-l+delta_x:delta_x:l-delta_x)', U, '.r');
-            a.children(1).children.thickness = 1;
         end
     end
 
     // Affichage graphique
     plot(intervalle_x, probleme_stationnaire);
     xtitle("Représentation à différents pas de temps de la solution numérique convergeant vers la solution graphique");
-    legends(["Solution stationnaire", "Solution approchée"], "");
 endfunction
 
-
+// APPEL DE LA QUESTION 10
 question_10()

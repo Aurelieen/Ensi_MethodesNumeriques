@@ -39,7 +39,6 @@ function [matrice_A_diag, matrice_A_inf] = calcul_A(n, x_d, l, a)
     i = 1;
 
     for x = -l+delta_x:delta_x:l-2*delta_x
-        // n ajoute les coefficients dans la matrice
         matrice_A_diag(i) = C(x + delta_x / 2, x_d, a) + C(x - delta_x / 2, x_d, a);
         matrice_A_inf(i) = -C(x + delta_x / 2, x_d, a);
 
@@ -90,7 +89,7 @@ function [sm] = calcul_second_membre(N_diag, N_inf, U, mu, k, n, x_d, l, a, thet
     sm = zeros(n, 1);
     B = calcul_B(k, n, x_d, l, a, theta, delta_t, delta_x, T);
 
-    // Produit N * U
+    // Produit N * U simplifié par la structure particulière des matrices
     sm(1) = N_diag(1) * U(1) + N_inf(1) * U(2) + mu * B(1)
     sm(n) = N_diag(n) * U(n) + N_inf(n - 1) * U(n - 1)
 
@@ -151,5 +150,6 @@ function [vect_F] = flux_vecteur(x_d)
 endfunction
 
 
+// A DECOMMENTER POUR TESTER
 // Exemple d'appel :
-// flux(-10)
+// flux(-8)
