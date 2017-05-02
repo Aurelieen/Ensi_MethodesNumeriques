@@ -16,7 +16,7 @@ funcprot(0)
 // =========================
 //  - "m_diag"      diagonale de la matrice M ;
 //  - "m_inf"       sous-diagonale de la matrice M ;
-// 
+//
 //  + "l_diag"      diagonale de la matrice résultat L ;
 //  + "l_inf"       sous-diagonale (réindexée) de la matrice résultat L ;
 
@@ -24,13 +24,13 @@ function [l_diag, l_inf] = factorise(m_diag, m_inf)
     n = length(m_diag);
     l_diag = zeros(n, 1);
     l_inf = zeros(n - 1, 1);
-    
+
     // On utilise la formule de récurrence du TD5 :
     //   L[1, 1] = sqrt(M[1, 1])
     //   L[j + 1, j] = M[j + 1, j]/L[j, j]
     //   L[j + 1, j + 1] = sqrt(M[j + 1, j + 1] - L[j + 1, j]²)
     l_diag(1) = sqrt(m_diag(1));
-    
+
     for j = 2:n
         l_inf(j - 1) = m_inf(j - 1)/l_diag(j - 1);
         l_diag(j) = sqrt(m_diag(j) - l_inf(j - 1) ** 2);
@@ -48,4 +48,3 @@ endfunction
 // [l_diag_td5, l_inf_td5] = factorise(m_diag_td5, m_inf_td5);
 // disp(l_diag_td5, "l_diag_td5. Attendu : [1, 1, 1, 1, 1]");   // [1, 1, 1, 1, 1]
 // disp(l_inf_td5, "l_inf_td5. Attendu : [-1, -1, -1, -1]");    // [-1, -1, -1, -1]
-

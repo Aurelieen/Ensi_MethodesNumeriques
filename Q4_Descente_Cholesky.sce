@@ -34,7 +34,3 @@ function z = descente(l_diag, l_inf, y)
         z(j) = (y(j) - l_inf(j - 1) * z(j - 1)) / l_diag(j);
     end
 endfunction
-
-
-// EXEMPLES D'UTILISATION
-// TODO. Ecrire un test !

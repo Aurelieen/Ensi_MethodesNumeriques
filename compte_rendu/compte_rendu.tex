@@ -533,18 +533,50 @@
         \includegraphics[scale=0.52]{images/q13_dichotomie.png}
     \end{center}
 
+    \vspace{-2ex}
     \begin{calculs}
         \emph{Le résultat obtenu avec les données de l'énoncé est : \texttt{-3.12079}.}
     \end{calculs}
 
-    \bigskip
+    \medskip
     \bigskip
     \quest{QUESTION 14}. Méthode de Gauss-Newton.
     \begin{ref_scilab}
         \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
         \emph{Se référer à :} \texttt{\emph{Q14\_J\_GaussNewton.sce}}
     \end{ref_scilab}
+
+    La méthode de Gauss-Newton converge plus rapidement que la méthode dichotomique
+    employée à la question précédente. En prenant $x_0 = 0$, on obtient ainsi le résultat
+    à une précision de $10^{-5}$ avec les itérations suivantes :
+
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+            Itération & Valeur de $x_d$ \\
+            \hline
+            0 & \hspace{8ex}-6.55556\hspace{8ex} \\
+            \hline
+            1 & \hspace{8ex}-4.24829\hspace{8ex} \\
+            \hline
+            2 & \hspace{8ex}-3.31776\hspace{8ex} \\
+            \hline
+            3 & \hspace{8ex}-3.12891\hspace{8ex} \\
+            \hline
+            4 & \hspace{8ex}-3.12084\hspace{8ex} \\
+            \hline
+            5 & \hspace{8ex}-3.12079\hspace{8ex} \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    Six calculs de flux suffisent pour trouver $x_d^{*}$.
+    Les bonnes propriétés de cette méthode dans notre
+    cas peuvent s'expliquer par le fait que $x_0$ est initialisé près du minimum et
+    que la fonction $J$ a une allure convexe sur un intervalle
+    assez large autour de $x_d^{*}$ et $x_0$.
+
     \begin{calculs}
-        \emph{Le résultat obtenu avec les données de l'énoncé est : \texttt{CHIFFRE}.}
+        \emph{Le résultat obtenu avec les données de l'énoncé est : \texttt{-3.12079}.}
     \end{calculs}
 \end{document}

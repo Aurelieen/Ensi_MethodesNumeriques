@@ -3,7 +3,7 @@
 // ::  Question 7. Problème stationnaire  ::
 // ::                                     ::
 // :::::::::::::::::::::::::::::::::::::::::
-funcprot(0)
+funcprot(0);
 exec("Q3_Factorisation_Cholesky.sce");
 exec("Q4_Descente_Cholesky.sce");
 exec("Q5_Remontee_Cholesky.sce");
@@ -13,7 +13,8 @@ exec("Q5_Remontee_Cholesky.sce");
 // Demi-longueur de la barre métallique
 l = 13;
 
-// Fonction de conductivité
+// FONCTIONS A UNE VARIABLE REELLE
+// Fonction de conductivité simplifiée
 function res = C(x)
     res = exp(-x / l);
 endfunction
@@ -24,7 +25,11 @@ function res = probleme_stationnaire(x)
 endfunction
 
 
-// Matrice A
+// :::::::::::::::::::::::::
+// :: CALCULS DE MATRICES ::
+// :::::::::::::::::::::::::
+
+// Calcul de la matrice A, tridiagonale
 function [matrice_A_diag, matrice_A_inf] = calcul_A(n)
     matrice_A_diag = zeros(n, 1);
     matrice_A_inf = zeros(n-1, 1);
@@ -32,8 +37,8 @@ function [matrice_A_diag, matrice_A_inf] = calcul_A(n)
     delta_x = (2 * l)/(n + 1);
     i = 1;
 
+    // Arrêt une itération plus tôt, on ne doit pas écrire matrice_A_inf(n)
     for x = -l+delta_x:delta_x:l-2*delta_x
-        // n ajoute les coefficients dans la matrice
         matrice_A_diag(i) = C(x + delta_x / 2) + C(x - delta_x / 2);
         matrice_A_inf(i) = -C(x + delta_x / 2);
 
@@ -44,7 +49,7 @@ function [matrice_A_diag, matrice_A_inf] = calcul_A(n)
 endfunction
 
 
-// Matrice B
+// Calcul de la matrice B, matrice-colonne
 function [matrice_B] = calcul_B(n)
     delta_x = (2 * l)/(n + 1);
 
@@ -52,7 +57,8 @@ function [matrice_B] = calcul_B(n)
     matrice_B(1) = C(-l + (delta_x/2));
 endfunction
 
-
+// Discrétisation de la solution exacte
+// pour la mettre sur le même plan que la solution numérique approchée
 function [v_ps] = discretiser(fonc, delta_x, n)
     v_ps = zeros(n, 1);
     i = 1
@@ -64,6 +70,7 @@ function [v_ps] = discretiser(fonc, delta_x, n)
 endfunction
 
 
+// QUESTION 7
 // DECOMPOSITION DE CHOLESKY
 function question_7()
     clf;
@@ -81,14 +88,15 @@ function question_7()
         v_descente = descente(F_diag, F_inf, B);
         v_remonte = remonte(F_diag, F_inf, v_descente);
 
+        // On affiche en norme infinie la différence des deux solutions
         v_ps = discretiser(probleme_stationnaire, delta_x, n);
         resultat($ + 1) = norm(v_remonte - v_ps, 'inf');
     end
 
     // Affichage graphique
-    plot((n_min:n_step:n_max)', resultat)
-    xtitle("Norme infinie de la différence entre solution exacte et solution approchée")
-    legends("Différence entre les solutions exacte et approchée, en norme infinie")
+    plot((n_min:n_step:n_max)', resultat);
+    xtitle("Norme infinie de la différence entre solution exacte et solution approchée");
 endfunction
 
+// APPEL DE LA QUESTION 7
 question_7();

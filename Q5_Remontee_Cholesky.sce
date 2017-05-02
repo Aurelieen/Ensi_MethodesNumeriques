@@ -31,11 +31,7 @@ function x = remonte(l_diag, l_inf, z)
     end
 endfunction
 
-
-// EXEMPLES D'UTILISATION
-// TODO. Ecrire un test !
-
-// EXEMPLE CONNU :
+// EXEMPLE CONNU.
+// Cet exemple est détaillé dans Q5_Exemple_Cholesky.sce
 // {{1, -1, 0, 0, 0}, {-1, 2, -1, 0, 0}, {0, -1, 2, -1, 0}, {0, 0, -1, 2, -1}, {0, 0, 0, -1, 2}} . {{a}, {b}, {c}, {d}, {e}} = {{10}, {20}, {30}, {40}, {50}}
 // donne comme résultats : a = 350; b = 340; c = 310; d = 250; e = 150
-// via WolframAlpha

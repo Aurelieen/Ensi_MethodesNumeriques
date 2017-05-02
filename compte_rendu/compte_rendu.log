@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.22)  2 MAY 2017 16:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.22)  2 MAY 2017 20:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1127,7 +1127,7 @@ Overfull \hbox (13.65808pt too wide) in paragraph at lines 533--534
 
 File: images/logo_scilab.png Graphic file (type png)
 <use images/logo_scilab.png>
-Package pdftex.def Info: images/logo_scilab.png used on input line 544.
+Package pdftex.def Info: images/logo_scilab.png used on input line 545.
 (pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
 \tf@thm=\write3
 \openout3 = `compte_rendu.thm'.
@@ -1170,7 +1170,7 @@ ive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/20
 16/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on compte_rendu.pdf (8 pages, 384688 bytes).
+Output written on compte_rendu.pdf (8 pages, 385609 bytes).
 PDF statistics:
  132 PDF objects out of 1000 (max. 8388607)
  91 compressed objects within 1 object stream
