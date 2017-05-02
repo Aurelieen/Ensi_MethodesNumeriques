@@ -103,7 +103,7 @@ endfunction
 // Fonction FLUX
 function [F_t_inter, F_t_fin] = flux(x_d)
     // Définition de tous les paramètres
-    n = 200; n_t = 300;
+    n = 2000; n_t = 3000;
     l = 10; T = 60; a = 0.8; theta = 1/2;
 
     // Valeurs temporelles auxquelles on récupère le flux

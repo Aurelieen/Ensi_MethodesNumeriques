@@ -520,6 +520,21 @@
         \Sinon{$ I = \mathopen{[}x_2\,;b\mathclose{]}$}
     \end{algorithm}
 
+    \newpage En effet, avoir $J(x_1)$ pour minimum signifie que, parmi les bornes $x_i$
+    dont on dispose, c'est $x_1$ qui est le plus près de $x_d^{*}$. Cela nous assure que
+    $x_d^{*}$ est entouré des mêmes bornes que $x_1$, ici $a$ et $x_2$. Le raisonnement
+    est analogue pour les deux autres cas.\newline
+
+    On affiche ici pour quelques itérations l'effet de la dichotomie sur l'intervalle
+    de décision de départ et on constante qu'il se resserre
+    autour de $x_d^{*}$ : $\mathopen{[}-6\,;3\mathclose{]}$.
+
+    \begin{center}
+        \includegraphics[scale=0.52]{images/q13_dichotomie.png}
+    \end{center}
+
+    Le résultat attendu avec les données de l'énoncé est : \texttt{CHIFFRE}.
+
     \vspace{8cm}
     \quest{QUESTION 14}. Méthode de Gauss-Newton.
 

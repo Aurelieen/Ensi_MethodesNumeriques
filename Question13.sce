@@ -15,6 +15,12 @@ function [J1, J2, J3] = trois_flux(liste_flux)
 
 endfunction
 
+function res = coloration(x, i)
+    for idx = 1:length(x)
+        res($ + 1) = i
+    end
+endfunction
+
 // xd réultat
 // epsilon précision.
 // a, b bornes de l'intervalle
@@ -22,10 +28,10 @@ function [xd] = dichotomie(epsilon, fJ, J_depart, intervalle)
     J1 = J_depart(1);
     J2 = J_depart(2);
     J3 = J_depart(3);
-    // [J1, J2, J3] = repmat([J_depart(1), J_depart(2), J_depart(3)]);
 
     while abs(intervalle(1) - intervalle(2)) > epsilon
         Jmin = min(J1, J2, J3);
+
         if Jmin == J1 then
             intervalle(2) = intervalle(1) + (intervalle(2)-intervalle(1))/2;
         end
@@ -36,12 +42,8 @@ function [xd] = dichotomie(epsilon, fJ, J_depart, intervalle)
          if Jmin == J3 then
             intervalle(1) = intervalle(1) + (intervalle(2)-intervalle(1))/2;
         end
-        delta = (intervalle(2) - intervalle(1))/4; 
+        delta = (intervalle(2) - intervalle(1))/4;
         [J1, J2, J3] = fJ([intervalle(1) + delta * 1, intervalle(1) + delta * 2, intervalle(1) + delta * 3]);
-        
-        disp("J1 " + string(J1)); 
-        disp("J2 " + string(J2)); 
-        disp("J3 " + string(J3)); 
     end
 
     xd = (intervalle(2) + intervalle(1))/2;
