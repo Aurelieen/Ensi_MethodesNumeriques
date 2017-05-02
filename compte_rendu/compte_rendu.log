@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.29)  1 MAY 2017 16:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.29)  2 MAY 2017 06:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -880,43 +880,92 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \thm@topsep=\skip134
 \thm@topsepadd=\skip135
 )
-\c@question=\count166
-\c@exo=\count167
-\c@calculs=\count168
-\c@ref_scilab=\count169
-\c@proposition=\count170
+(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count166
+\algocf@hangindent=\skip136
 
-(./compte_rendu.aux)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+********************************************************
+Package `algorithm2e' Release 5.1 -- october 19 2015 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (christophe.fiorio@umontpellier.fr)
+********************************************************
+\skiptotal=\skip137
+\skiplinenumber=\skip138
+\skiprule=\skip139
+\skiphlne=\skip140
+\skiptext=\skip141
+\skiplength=\skip142
+\algomargin=\skip143
+\skipalgocfslide=\skip144
+\algowidth=\dimen156
+\inoutsize=\dimen157
+\inoutindent=\dimen158
+\interspacetitleruled=\dimen159
+\interspacealgoruled=\dimen160
+\interspacetitleboxruled=\dimen161
+\algocf@ruledwidth=\skip145
+\algocf@inoutbox=\box53
+\algocf@inputbox=\box54
+\AlCapSkip=\skip146
+\AlCapHSkip=\skip147
+\algoskipindent=\skip148
+\algocf@nlbox=\box55
+\algocf@hangingbox=\box56
+\algocf@untilbox=\box57
+\algocf@skipuntil=\skip149
+\algocf@capbox=\box58
+\algoheightruledefault=\skip150
+\algoheightrule=\skip151
+\algotitleheightruledefault=\skip152
+\algotitleheightrule=\skip153
+\c@algocfline=\count167
+\c@algocfproc=\count168
+\c@algocf=\count169
+\algocf@algoframe=\box59
+\algocf@algobox=\box60
+)
+\c@question=\count170
+\c@exo=\count171
+\c@calculs=\count172
+\c@ref_scilab=\count173
+\c@proposition=\count174
+ (./compte_rendu.aux)
 \openout1 = `compte_rendu.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Info: Redefining \degres on input line 83.
-LaTeX Info: Redefining \dots on input line 83.
-LaTeX Info: Redefining \up on input line 83.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Info: Redefining \degres on input line 84.
+LaTeX Info: Redefining \dots on input line 84.
+LaTeX Info: Redefining \up on input line 84.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count171
-\scratchdimen=\dimen156
-\scratchbox=\box53
-\nofMPsegments=\count172
-\nofMParguments=\count173
+\scratchcounter=\count175
+\scratchdimen=\dimen162
+\scratchbox=\box61
+\nofMPsegments=\count176
+\nofMParguments=\count177
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count174
-\MPscratchDim=\dimen157
-\MPnumerator=\count175
-\makeMPintoPDFobject=\count176
+\MPscratchCnt=\count178
+\MPscratchDim=\dimen163
+\MPnumerator=\count179
+\makeMPintoPDFobject=\count180
 \everyMPtoPDFconversion=\toks47
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -935,19 +984,19 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count177
-\AtBeginShipoutBox=\box54
-LaTeX Font Info:    Try loading font information for U+msa on input line 85.
+\c@lstlisting=\count181
+\AtBeginShipoutBox=\box62
+LaTeX Font Info:    Try loading font information for U+msa on input line 86.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 85.
+LaTeX Font Info:    Try loading font information for U+msb on input line 86.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 85.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 86.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [1
 
@@ -956,9 +1005,9 @@ LaTeX Font Info:    Try loading font information for U+stmry on input line 85.
 File: images/logo_scilab.png Graphic file (type png)
 
 <use images/logo_scilab.png>
-Package pdftex.def Info: images/logo_scilab.png used on input line 192.
+Package pdftex.def Info: images/logo_scilab.png used on input line 193.
 (pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 193.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 194.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmtt.fd
@@ -967,154 +1016,165 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 File: images/logo_scilab.png Graphic file (type png)
 
 <use images/logo_scilab.png>
-Package pdftex.def Info: images/logo_scilab.png used on input line 201.
+Package pdftex.def Info: images/logo_scilab.png used on input line 202.
 (pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
 File: images/logo_scilab.png Graphic file (type png)
  <use images/logo_scilab.png>
-Package pdftex.def Info: images/logo_scilab.png used on input line 208.
+Package pdftex.def Info: images/logo_scilab.png used on input line 209.
 (pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
 File: images/logo_scilab.png Graphic file (type png)
 
 <use images/logo_scilab.png>
-Package pdftex.def Info: images/logo_scilab.png used on input line 251.
+Package pdftex.def Info: images/logo_scilab.png used on input line 252.
 (pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
  [2 <./images/logo_scilab.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 295--298
+Underfull \hbox (badness 10000) in paragraph at lines 296--299
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 295--298
+Underfull \hbox (badness 10000) in paragraph at lines 296--299
 
  []
 
 File: images/logo_scilab.png Graphic file (type png)
 <use images/logo_scilab.png>
-Package pdftex.def Info: images/logo_scilab.png used on input line 302.
+Package pdftex.def Info: images/logo_scilab.png used on input line 303.
 (pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
  [3]
 <images/q7_ps3.png, id=34, 561.09625pt x 415.5525pt>
 File: images/q7_ps3.png Graphic file (type png)
  <use images/q7_ps3.png>
-Package pdftex.def Info: images/q7_ps3.png used on input line 360.
+Package pdftex.def Info: images/q7_ps3.png used on input line 361.
 (pdftex.def)             Requested size: 381.5404pt x 282.57196pt.
 
 [4 <./images/q7_ps3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 405--409
+Underfull \hbox (badness 10000) in paragraph at lines 406--410
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--419
+Underfull \hbox (badness 10000) in paragraph at lines 417--420
 
  []
 
 [5]
 File: images/logo_scilab.png Graphic file (type png)
  <use images/logo_scilab.png>
-Package pdftex.def Info: images/logo_scilab.png used on input line 442.
+Package pdftex.def Info: images/logo_scilab.png used on input line 443.
 (pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
 
 <images/q10_approche2.png, id=45, 943.525pt x 507.8975pt>
 File: images/q10_approche2.png Graphic file (type png)
 
 <use images/q10_approche2.png>
-Package pdftex.def Info: images/q10_approche2.png used on input line 455.
+Package pdftex.def Info: images/q10_approche2.png used on input line 456.
 (pdftex.def)             Requested size: 471.76134pt x 253.94814pt.
 
-Overfull \hbox (18.79344pt too wide) in paragraph at lines 455--456
+Overfull \hbox (18.79344pt too wide) in paragraph at lines 456--457
  [] 
  []
 
 File: images/logo_scilab.png Graphic file (type png)
 <use images/logo_scilab.png>
-Package pdftex.def Info: images/logo_scilab.png used on input line 468.
+Package pdftex.def Info: images/logo_scilab.png used on input line 469.
 (pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
  [6 <./images/q10_approche2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 496--499
+File: images/logo_scilab.png Graphic file (type png)
+
+<use images/logo_scilab.png>
+Package pdftex.def Info: images/logo_scilab.png used on input line 484.
+(pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
+
+<images/q12_mesure_xd.png, id=49, 770.88pt x 432.61626pt>
+File: images/q12_mesure_xd.png Graphic file (type png)
+
+<use images/q12_mesure_xd.png>
+Package pdftex.def Info: images/q12_mesure_xd.png used on input line 497.
+(pdftex.def)             Requested size: 477.94067pt x 268.2193pt.
+
+Overfull \hbox (24.97278pt too wide) in paragraph at lines 497--498
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--504
+
+ []
+
+File: images/logo_scilab.png Graphic file (type png)
+<use images/logo_scilab.png>
+Package pdftex.def Info: images/logo_scilab.png used on input line 508.
+(pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
+ [7 <./images/q12_mesure_xd.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 532--542
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 516--517
+Underfull \hbox (badness 10000) in paragraph at lines 561--584
 
  []
 
-[7] [8]
-Overfull \hbox (1.47049pt too wide) in paragraph at lines 587--590
-[]\T1/cmr/m/n/10.95 Le ré-sul-tat de la fonc-tion \T1/cmtt/m/n/10.95 integrale2
- \T1/cmr/m/n/10.95 est plus cré-dible que ce-lui de la fonc-tion \T1/cmtt/m/n/1
-0.95 integrale1\T1/cmr/m/n/10.95 .
- []
-
-[9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 760--770
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 585--587
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 789--812
+Underfull \hbox (badness 10000) in paragraph at lines 626--628
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 813--815
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 854--856
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 857--875
+Underfull \hbox (badness 10000) in paragraph at lines 629--647
 
  []
 
 \tf@thm=\write3
 \openout3 = `compte_rendu.thm'.
 
-[13] (./compte_rendu.aux) ) 
+[9] (./compte_rendu.aux) )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 1061 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 15276 strings out of 493013
- 261511 string characters out of 6133328
- 331442 words of memory out of 5000000
- 18624 multiletter control sequences out of 15000+600000
- 24882 words of font info for 64 fonts, out of 8000000 for 9000
+ 16350 strings out of 493013
+ 279206 string characters out of 6133328
+ 366204 words of memory out of 5000000
+ 19692 multiletter control sequences out of 15000+600000
+ 23430 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,18n,44p,10432b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/
-cm-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
-.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
-bm10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx10
-00.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1095
-.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1200.p
-fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/loc
-al/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb>
-Output written on compte_rendu.pdf (13 pages, 432782 bytes).
+ 39i,16n,44p,10432b,2563s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm
+-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pf
+b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
+Output written on compte_rendu.pdf (9 pages, 386174 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
+ 133 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
