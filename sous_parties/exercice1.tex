@@ -83,4 +83,136 @@ On en déduit:
 si $J(x_1) = min(J(x_1), J(x_2), J(x_3))$, alors $x_1$ est le plus près de de $x_{cible}$, doncon choisit l'intervalle $[a, x_2]$.
 De même, si $J(x_2) = min(J(x_1), J(x_2), J(x_3))$, alors on choisit l'intervalle $[x_1, x_3]$.
 et si $J(x_3) = min(J(x_1), J(x_2), J(x_3))$, alors on choisit l'intervalle $[x_2, b]$.
+
+\section{RESTE}
+
+    Soit $x = (x_1, x_2, ... , x_n)$
+    \newline
+    $x^TAx = \sum\limits_{i = 1}^{n} (C_{i+1/2} + C_{i-1/2}) x_i^2 - 2 \sum\limits_{i = 1}^{n-1} C_{i+1/2} x_i x_{i+1} $
+    \newline
+    $ = \sum\limits_{i = 1}^{n} C_{i+1/2} x_i^2 + \sum\limits_{j = 0}^{n-1} C_{j+1/2} x_{j+1}^2  + - 2 \sum\limits_{i = 1}^{n-1} C_{i+1/2} x_i x_{i+1} $ On pose j = i-1
+    \newline
+    $ = \sum\limits_{i = 1}^{n-1} C_{i+1/2} (x_i - x_{i+1})^2 + C_{1/2} x_{1/2}^2 + C_{n + 1/2} x_{n}^2 > 0 $
+    \newline
+    Comme $x^TAx > 0 \forall x \in \R ^n $ alors la matrice A est symétrique définie positive.
+    \newline
+
+    D'après (9):
+    $ \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}](x_i, t_k) = \frac{
+    C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)}+C_{i-1/2}u_{i-1}^{k}}{\delta^{2}}$
+    Pour résoudre (13), on résout 9 pour chaque coefficient $u_i^{k}$
+
+    $$
+    \overset{B} {
+        \begin{pmatrix}
+            u_0 C_{1/2} \\
+            0 \\
+            0 \\
+            0 \\
+        \end{pmatrix}
+    }
+    $$
+
+    Question 6.
+
+    D'après l'équation (9),
+    \newline
+    $ \frac{\partial }{\partial x} [C(x)\frac{\partial u }{\partial x}](x_i, t_k) \approx \frac{C_{i+1/2}u_{i+1}^{(k)} - (C_{i+1/2} + C_{i-1/2})u_i^{(k)} + C_{i-1/2}u_{i-1}^{(k)}}{\delta_x^2} $
+    \newline
+    Si on écrit ce système, $\forall i $ sous forme matricielle, on obtient:
+    \newline
+    $ \frac{\partial }{\partial x} [C(x)\frac{\partial u }{\partial x}] = \frac{1}{\delta ^2} (-A u +
+    \overset{B} {
+        \begin{pmatrix}
+            u_0 C_{1/2} \\
+            0 \\
+            0 \\
+            0 \\
+        \end{pmatrix}
+    })$
+    car $u(-l) = u_0$
+    avec $u = (u_1^{(k)}, ... , u_n^{(k)}) $
+    et A la matrice trouvée à la question 1.
+    \newline
+    Donc A u = B, avec $B = (b_0, ..., b_n)$
+    où, $b_0 = C_{1/2} u_0$
+    et $b_i = 0$  $\forall i \in [2, n] $
+    \newline
+
+    Ce système admet une solution unique car A est définie et donc inversible.
+    \newline
+
+    Question 7.
+
+    On résout l'équation:
+    $$\left\{
+    \begin{array}{ll}
+      \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}] = 0 \\
+      u(-l) = u_0 \\
+      u(l) = 0
+      \end{array}
+    \right.
+    $$
+
+    $  \frac{\partial}{\partial x}[C(x)\frac{\partial u}{\partial x}] = 0 $
+    $  -\frac{1}{l} e^{-\frac{x}{l}}\frac{\partial u}{\partial x} + e^{-\frac{x}{l}} \frac{\partial^2 u }{\partial x^2} = 0 $
+    $ \frac{\partial^2 u}{\partial x^2} - \frac{1}{l} \frac{\partial u}{\partial x} = 0$
+
+    $u(x) = \alpha + \beta e^{\frac{x}{l}} $
+
+    Calcul des constantes:
+    $$\left\{
+      \begin{array}{ll}
+        u(-l) = \alpha + \beta e^{-1} = u_0 = 1 \\
+        u(l) = \alpha + \beta e = 0
+      \end{array}
+    \right.
+    $$
+
+    $$\left\{
+      \begin{array}{ll}
+        \beta = \frac{1}{e^{-1} - e} \\
+        \alpha = -\frac{e}{e^{-1} - e}
+      \end{array}
+    \right.
+    $$
+
+    Donc :
+    $u(x) = -\frac{e}{e^{-1} - e} + \frac{1}{e^{-1} - e} e^{\frac{x}{l}} $
+
+    Question 8.
+    \newline
+
+    $M = I+ \theta \mu A$ et $N = I+(\theta - 1)\mu A$
+    \newline
+    M et N sont donc des polynomes de matrices.
+    \newline
+    Donc, soit $x_A$ un vecteur propre de A et $\lambda_A$ une valeur propre de A,
+    alors $x_A$ est aussi un vecteur propre de M avec comme valeur propre $M\lambda_A$
+    \newline
+    Les valeurs propres de M sont $\lambda_M = 1+\theta \mu \lambda_A$.
+    \newline
+    Les valeurs propres de N sont $\lambda_N = 1+(\theta - 1)\mu \lambda_A$
+    \newline
+    Les valeurs propres de $M^{-1}N$ sont $\frac{\lambda_N}{\lambda_M} = \frac{1+(\theta - 1)\mu \lambda_A}{1+\theta \mu \lambda_A}$ $\forall \lambda_A$.
+    $ 1+(\theta - 1)\mu \lambda_A < 1+\theta \mu \lambda_A$
+    \newline
+    Donc $\rho(M^{-1}N) = max(\frac{\lambda_N}{\lambda_M}) < 1$
+    \newline
+    \newline
+    \vspace{12ex}
+
+    Question 9.
+
+    $M U^{(k+1)} = NU^{(k)} + \mu B$
+    Cette méthode de décomposition converge uniquement si $\rho(M^{-1}N) < 1$, ce qui est le cas ici(question 8).
+    \newline
+    Cette décomposition converge vers $Ax = b$, avec A = M - N.
+    \newline
+    $M - N = I + \theta \mu A - I - (\theta - 1) \mu A$
+    $ = \mu A $
+    \newline
+    $\mu A x = \mu B$
+    $A x = B$
+    On retrouve ici les matrices A et B de la question (6).
 \end{document}

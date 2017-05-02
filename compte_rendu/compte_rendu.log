@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.22)  2 MAY 2017 15:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.22)  2 MAY 2017 16:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1125,35 +1125,15 @@ Overfull \hbox (13.65808pt too wide) in paragraph at lines 533--534
  [] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 547--557
-
- []
-
-[8 <./images/q13_dichotomie.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 576--599
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 600--602
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 641--643
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 644--662
-
- []
-
+File: images/logo_scilab.png Graphic file (type png)
+<use images/logo_scilab.png>
+Package pdftex.def Info: images/logo_scilab.png used on input line 544.
+(pdftex.def)             Requested size: 12.0118pt x 12.04504pt.
 \tf@thm=\write3
 \openout3 = `compte_rendu.thm'.
 
-[10] (./compte_rendu.aux) )
+ [8 <./images/q13_dichotomie.png>]
+(./compte_rendu.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
@@ -1190,10 +1170,10 @@ ive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/20
 16/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on compte_rendu.pdf (10 pages, 396878 bytes).
+Output written on compte_rendu.pdf (8 pages, 384688 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
+ 132 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
