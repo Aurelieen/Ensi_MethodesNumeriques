@@ -22,6 +22,7 @@ function res = J(x_d)
     // disp(x_d, res);
 endfunction
 
+
 // Question 12
 function question12()
     xd_gauche = -10

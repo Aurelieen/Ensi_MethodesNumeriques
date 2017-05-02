@@ -133,12 +133,19 @@ function [F_t_inter, F_t_fin] = flux(x_d)
         U = remonte(F_diag, F_inf, v_descente);
         t_verif = (k + 1) * delta_t;
 
-        if t_verif == t_inter then
+        if (t_verif == t_inter) then
             F_t_inter = C(-l + (delta_x / 2), x_d, a) * (U(1) - u0(t_inter, T)) * (1 / delta_x) - (delta_x / 2) * derivee_en_t_u0(t_inter, T)
+            //disp("ah");
+            //disp(F_t_inter);
+            //disp("Inter");
         elseif t_verif == t_fin then
             F_t_fin = C(-l + (delta_x / 2), x_d, a) * (U(1) - u0(t_fin, T)) * (1 / delta_x) - (delta_x / 2) * derivee_en_t_u0(t_fin, T)
+            //disp(F_t_fin);
+            //disp("Fin");
         end
     end
+
+    disp((norm(-0.1 - F_t_inter, -0.18 - F_t_fin)/norm(-0.1, -0.18))^2);
 endfunction
 
 
