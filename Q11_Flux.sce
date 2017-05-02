@@ -16,7 +16,7 @@ endfunction
 
 // Fonction u0'(t)
 function res = derivee_en_t_u0(t, T)
-    res = (2 * t) / 3600
+    res = (2 * t) / (T^2)
 endfunction
 
 // Fonction u^(0) = u_p_0(x)
@@ -26,7 +26,7 @@ endfunction
 
 // Fonction C(x)
 function res = C(x, xd, a)
-    res = 1 - a * exp(-(x - xd)^2/(4))
+    res = 1 - a * exp(-(x - xd)^2/(4));
 endfunction
 
 
@@ -51,7 +51,7 @@ endfunction
 
 // Matrice B
 function [matrice_B] = calcul_B(k, n, x_d, l, a, theta, delta_t, delta_x, T)
-    matrice_B($ + 1) = C(-l + (delta_x/2), x_d, a) * (theta * u0(delta_t * k, T) + (1 - theta) * u0(delta_t * (k + 1), T));
+    matrice_B($ + 1) = C(-l + (delta_x/2), x_d, a) * (theta * u0(delta_t * (k + 1), T) + (1 - theta) * u0(delta_t * k, T));
 endfunction
 
 
@@ -103,15 +103,15 @@ endfunction
 // Fonction FLUX
 function [F_t_inter, F_t_fin] = flux(x_d)
     // Définition de tous les paramètres
-    n = 2000; n_t = 3000;
+    n = 200; n_t = 3000;
     l = 10; T = 60; a = 0.8; theta = 1/2;
 
     // Valeurs temporelles auxquelles on récupère le flux
     t_inter = 2/3 * T;
     t_fin = T;
 
-    F_t_inter = 0;
-    F_t_fin = 0;
+    F_t_inter = 5;
+    F_t_fin = 5;
 
     // Pas après discrétisation
     delta_x = (2 * l) / (n + 1);
@@ -125,7 +125,7 @@ function [F_t_inter, F_t_fin] = flux(x_d)
 
     U = zeros(n, 1);
 
-    for k = 0:n_t - 1
+    for k = 0:(n_t - 1)
         NU_p_muB = calcul_second_membre(N_diag, N_inf, U, mu, k, n, x_d, l, a, theta, delta_t, delta_x, T);
 
         // Décomposition de Cholesky

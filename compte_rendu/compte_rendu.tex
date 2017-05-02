@@ -16,6 +16,7 @@
 \usepackage{float}      % AJOUT
 \usepackage{stmaryrd}   % AJOUT
 \usepackage{ntheorem}   % AJOUT
+\usepackage[french]{algorithm2e}    % AJOUT
 
 \lstset{basicstyle=\small\tt,
   keywordstyle=\bfseries\color{Orchid},
@@ -478,286 +479,53 @@
     au calcul de sa seule composante non nulle $B_1^{(k)}$. On économie ainsi de l'espace mémoire
     et $n$ itérations pour l'affectation.
 
-    \newpage\quest{QUESTION 12}. Fonction $J$.
+    \newpage\quest{QUESTION 12}. Recherche de $x_d^{*}$ avec la fonction $J$.
     \begin{ref_scilab}
         \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
-        \emph{Se référer à :} \texttt{\emph{Q12\_Fonction_J.sce}}
+        \emph{Se référer à :} \texttt{\emph{Q12\_Fonction\_J.sce}}
     \end{ref_scilab}
+
+    La fonction $J(x_d)$ mesure l'écart (en norme euclidienne) entre le flux $\mathcal{F}$ mesuré
+    à différents points $x_d$ et le flux cible $\mathcal{F}_{cible} = (-0.1, -0.18)$.
+
+    \medskip
+    Le graphique ci-dessous représente la fonction $J$ sur la barre
+    métallique $\mathopen{]}-10\,;10\mathclose{[}$ à raison de $200$
+    points $x_d$ d'échantillonnage.
+
+    \begin{center}
+        \includegraphics[scale=0.62]{images/q12_mesure_xd.png}
+    \end{center}
+
+    La fonction $J$ admet un unique minimum. C'est le flux égal au flux
+    cible pour $x_d \simeq -3.5$. On implémente désormais deux méthodes pour
+    trouver par le calcul cette valeur $x_d^{*}$ : la méthode de la dichotomie
+    et la méthode de Gauss-Newton.\newline
+
+    \bigskip
+    \quest{QUESTION 13}. Méthode de la dichotomie.
+    \begin{ref_scilab}
+        \raisebox{-0.5ex}{\includegraphics[height=12px]{images/logo_scilab.png}}
+        \emph{Se référer à :} \texttt{\emph{Q13\_J\_Dichotomie.sce}}
+    \end{ref_scilab}
+
+    $J(x_d)$ est une mesure de la distance entre le flux en $x_d$ et le flux cible. On en déduit :
+
+    \medskip
+    \begin{algorithm}[H]
+        \Donnees{$J(x_1), J(x_2), J(x_3)$}
+        \Sortie{$I$, intervalle décidé}
+        \uSi{$J(x_1) = \min(J(x_1), J(x_2), J(x_3))$}{$ I = \mathopen{[}a\,;x_2\mathclose{]}$}
+        \uSinonSi{$J(x_2) = \min(J(x_1), J(x_2), J(x_3))$}{$ I = \mathopen{[}x_1\,;x_3\mathclose{]}$}
+        \Sinon{$ I = \mathopen{[}x_2\,;b\mathclose{]}$}
+    \end{algorithm}
+
+    \vspace{8cm}
+    \quest{QUESTION 14}. Méthode de Gauss-Newton.
 
 \section*{Annexes}
 
-\vspace{8cm}
-
-\section{Sensibilisation à l'arithmétique machine}
-\subsection*{Exercice 1}
-
-    Avec $x = 1^{30}$ et $y = 1^{-8}$, les résultats attendus sont $z = w = 1$.
-
-    Or, ces calculs sous \texttt{Scilab} donnent bien $w = 1$ mais aussi $z = 0$. \'{E}tudions la commande :
-    \begin{verbatim}
-      --> x + y
-    \end{verbatim}
-    Le résultat obtenu est erroné, il vaut $x$. En effet, le résultat de l'addition requiert \textbf{38 chiffres significatifs} ce qui est supérieur à la précision arbitraire permise par la commande \texttt{format(20)}.
-    Seuls les premiers chiffres sont pris en compte, c'est une conséquence de la limite de la taille de la mantisse avec la norme IEEE 754 utilisée dans \texttt{Scilab}.
-    \newline
-
-    Même s'ils devraient mathématiquement être égaux à 1, l'ordre des opérations dans $z$ et dans $w$ altère le résultat.
-    Le fait de mettre des parenthèses va indiquer à la machine quelle opération faire en premier.
-    \begin{itemize}
-        \item Dans le cas de $z$, $(y + x) = x$ à cause du manque de précision et donc $(y + x) - x = 0$ ;
-        \item Dans le cas de $w$, $(x - x) = 0$ donc $\frac{y + (x -x)}{y} = 1$.
-    \end{itemize}
-
-
-\subsection*{Exercice 2}
-
-    La figure~\ref{graph_exo2} ci-dessous présente en bleu la valeur attendue du calcul de $f(x)$ et en vert la valeur calculée par \texttt{Scilab} sur l'intervalle $[0, 4]$.
-    Si $f(x) = x$ pour tout $x$ de l'intervalle, on voit que ce n'est pas ce qu'on obtient par le calcul. En effet :
-
-    \begin{itemize}
-        \item sur l'intervalle $[0, 1]$, $f(x) = 0$ ;
-        \item sur l'intervalle $[1, 4]$, $f(x) = 1$.
-    \end{itemize}~\newline
-
-    \textbf{Méthode}. Nous avons calculé $y$ et $f(x)$ grâce à une boucle de 128 itérations.
-    Sur l'intervalle $[0, 1]$, le calcul de $y$ donne un résultat très proche de $1$ mais strictement inférieur. Ceci est dû à la précision machine
-    et aux algorithmes de calcul de la racine carrée qui ne fournissent pas une valeur exacte mais une valeur approchée par des polynômes.
-
-    Le problème est le même sur l'intervalle $[1, 4]$ où les écarts de précision introduits par la racine carrée sont amplifiés par la mise au carré. Le calcul de $y$ donne
-    un résultat égal à $1$ alors qu'il devrait être strictement supérieur.
-
-    Ainsi, sur l'intervalle $[0, 1]$, $y^{256} = 0$, alors que sur l'intervalle $[1, 4]$, $y = 1$ donc $y^{256} = 1$.
-
-    % IMAGE : Différence entre la valeur attendue de f(x) et la valeur calculée
-    \begin{figure}
-        \centering
-        \caption{\label{graph_exo2} Graphique de l'exercice 2}
-    \end{figure}
-
-
-\subsection*{Exercice 3}
-
-    \begin{enumerate}
-        \setlength\itemsep{2em}
-        \item
-        Grâce à une intégration par parties, on établit les égalités suivantes :
-
-        \begin{equation*}
-        \begin{split}
-            I_{n}   & = \int_{0}^{1} x^{n}e^{x} dx \\
-                    & = [x^{n}e^{x}]_{0}^{1} - \int_{0}^{1} n x^{n-1}e^{x} dx \\
-                    & = e - n\int_{0}^{1} x^{n-1}e^{x} dx \\
-                    & = e - n I_{n-1}
-        \end{split}
-        \end{equation*}
-
-        Ce qui conduit à une suite définie par:
-        \[
-        \left\{
-        \begin{array}{r c l}
-            I_{n} &=& e - n I_{n-1}\\
-            I_{0} &=& e - 1
-        \end{array}
-        \right.
-        \]
-
-        \textbf{\'{E}valuation}. On implémente la récurrence dans \texttt{Scilab} grâce à une fonction récursive.
-        Le résultat de l'appel de la fonction \texttt{integrale1(20)} vaut environ \texttt{-129.264}.
-        La fonction $x^{n}e^{x}$ est positive entre $0$ et $1$ quel que soit $n$.
-        L'intégrale d'une fonction positive étant aussi positive, on en déduit que ce résultat est faux.
-
-        La valeur de $I_{n}$ devient en effet très petite au fur et à mesure que $n$ croît.
-        La précision de calcul limitée fausse les résultats, il faut donc choisir une autre méthode.
-
-        \item
-        D'après le développement en série de $e^{x}$, on sait que :
-        $$e^{x} =  \sum\limits_{n = 0}^{+\infty} \frac{x^{n}}{n!} \implies I_{n} = \int_{0}^{1} x^{n}e^{x} dx = \int_{0}^{1}\sum\limits_{n = 0}^{+\infty} \frac{x^{n}}{n!} dx$$
-        La suite $u_{n} = \sum\limits_{n = 0}^{+\infty} \frac{x^{n}}{n!}$ est positive et croissante. D'après le \textbf{théorème
-        de convergence monotone}, il est possible d'intervertir la somme et l'intégrale :
-
-        \begin{equation*}
-        \begin{split}
-            \int_{0}^{1}\sum\limits_{n = 0}^{+\infty} \frac{x^{n}}{n!} dx   & = \sum\limits_{n = 0}^{+\infty}\int_{0}^{1}\frac{x^{n}}{n!} dx \\
-                                                                            & = \sum\limits_{n = 0}^{+\infty} \frac{1}{n!}\left[\frac{x^{21 + n}}{21 + n}\right]_{0}^{1} \\
-                                                                            & = \sum\limits_{n = 0}^{+\infty} \frac{1}{n! (21+n)}
-        \end{split}
-        \end{equation*}
-
-        \textbf{\'{E}valuation}. Le terme général de la série ci-dessus tend rapidement vers $0$.
-        On obtiendra donc une bonne approximation de l'intégrale sans calculer énormément de termes.
-        Soit \texttt{N} le nombre de termes calculés. Pour \texttt{N} = 10, l'appel à \texttt{integrale2(N)} vaut environ \texttt{0.1238}.
-
-        \item
-        Le résultat de la fonction \texttt{integrale2} est plus crédible que celui de la fonction \texttt{integrale1}.
-        Dans le calcul par récurrence, les erreurs de précision se propagent au fur et à mesure des appels et faussent beaucoup le résultat.
-        Dans le calcul itératif, les erreurs de précision sont minimes et n'ont plus d'influence quand le terme tend vers zéro.
-
-        La fonction \texttt{integrate} de \texttt{Scilab} permet de vérifier que le calcul itératif est correct.
-    \end{enumerate}
-
-
-\subsection*{Exercice 4}
-
-    En subdivisant l'intervalle d'intégration en \texttt{N} points, on peut obtenir une
-    approximation de l'intégrale $I_{n}$ par la méthode des rectangles \textit{à gauche} ou \textit{à droite}.
-    On note $I^{G}$ l'approximation par la gauche et $I^{D}$ l'approximation par la droite.
-
-    \begin{itemize}
-        \item
-        Pour \texttt{N = 100} points, $I^{G} = 0.1106$ et $I^{D} = 0.1379$
-
-        \item
-        Pour \texttt{N = 1000} points, $I^{G} = 0.1224$ et $I^{D} = 0.1251$
-
-        \item
-        Pour \texttt{N = 10000} points, $I^{G} = 0.1236$ et $I^{D} = 0.1239$
-
-        \item
-        Pour \texttt{N = 100000} points, $I^{G} = 0.1237$ et $I^{D} = 0.1238$
-    \end{itemize}
-
-    \'{A} gauche comme à droite, les valeurs de la méthode des rectangles tendent bien vers \texttt{0.1238}.
-    \begin{figure}[H]
-        \centering
-        \caption{\label{graph_exo4} Graphique de l'exercice 4}
-    \end{figure}
-
-
-\section{\'{E}tude du phénomène de Gibbs}
-
-\subsection*{Exercice 5}
-
-    Pour calculer la série de Fourier de la fonction $f(x)$, on détermine ses coefficients de Fourier.
-
-    \begin{mdframed}[backgroundcolor=gray!10]
-        \textbf{Note}. Comme la fonction $f$ est impaire, les \textbf{$a_{n}$ sont nuls}.
-        En effet, la fonction $cos(x)$ est paire et le produit d'une fonction paire et d'une fonction impaire reste impair. Puisque
-        l'intervalle sur lequel on intègre est centré en zéro, la partie gauche (< 0) et la
-        partie droite (> 0) de l'intégrale s'annulent.
-    \end{mdframed}
-
-    On procède alors au calcul des $b_{n}(f)$.
-
-    \begin{equation*}
-        \begin{split}
-            b_{n}(f)    & = \frac{2}{T}\int_{-\frac{1}{2}}^{\frac{1}{2}} f(t)sin(2 \pi \frac{n}{t} t) dt \\
-                        & = 2\int_{-\frac{1}{2}}^{\frac{1}{2}} f(t)sin(2 \pi n t) dt \text{ car } T = 1 \\
-                        & = -2\int_{-\frac{1}{2}}^{0} sin(2 \pi n t) dt + 2\int_{0}^{\frac{1}{2}} sin(2 \pi n t) dt \\
-                        & = -2\left[\frac{-cos(2 \pi n t)}{2 \pi n}\right]_{-\frac{1}{2}}^{0} + 2\left[-\frac{cos(2 \pi n t)}{2 \pi n}\right]_{\frac{1}{2}}^{0} \\
-                        & = \frac{1}{\pi n}(1 - cos(\pi n)) - \frac{1}{\pi n}(cos(\pi n) - 1) \\
-                        & = \frac{1}{\pi n}(1 - (-1)^n)) - \frac{1}{\pi n}((-1)^n - 1) \\
-                        & = \frac{2}{\pi n}(1 - (-1)^n))
-        \end{split}
-    \end{equation*}
-
-    Grâce à ce résultat, la série de Fourier de la fonction $f$ est :
-
-    \begin{equation*}
-        \begin{split}
-            f(t)    & = \sum\limits_{n = 0}^{+ \infty}\frac{2}{\pi n}(1 - (-1)^n)sin(2 \pi n t) \\
-                    & = \sum\limits_{n = 0}^{+ \infty}\frac{4}{\pi (2n+1)}sin(2 (2n+1) \pi t) \text{ car } \forall n \in 2 \mathbb{Z}, f(t) = 0
-        \end{split}
-    \end{equation*}
-
-    La fonction $f(x)$ est une fonction affine et dérivable par morceaux. Elle possède trois points de discontinuité : $\{-\frac{1}{2}, 0, \frac{1}{2}\}$.
-    Sa série de Fourier est une fonction continue qui ne peut pas effectuer de \og sauts\fg, elle devient alors invalide en ces points.
-    Ainsi, $f(0) = -1$, $f(-\frac{1}{2}) = -1$ et $f(\frac{1}{2}) = 1$ mais la série de Fourier passe par $0$ pour ces trois points.
-
-
-\subsection*{Exercice 6}
-
-    La figure~\ref{graph_exo6} illustre la représentation en série de Fourier \textit{tronquée} de la fonction $f(x)$ définie dans l'exercice 5.
-    La courbe bleue montre le résultat de la somme des \texttt{10} premiers \texttt{Ntermes} tandis que la courbe verte est générée à partir de \texttt{70 Ntermes}.
-    Plus le nombre de \texttt{Ntermes} croît, plus la série de Fourier approche la fonction $f(x)$.
-
-    Quel que soit le nombre de termes calculé, il se produit toutefois aux points de discontinuité
-    du signal de fortes oscillations issues du \textbf{phénomène de Gibbs}.
-
-    % IMAGE : Observation du phénomène de Gibbs à 10 et 40 termes
-    \begin{figure}[H]
-        \caption{\label{graph_exo6} Graphique de l'exercice 6}
-    \end{figure}
-
-    Le phénomène de Gibbs donne l'intuition que la convergence de la série de Fourier quand $n \rightarrow \infty$ ne peut pas être uniforme sur $[-\frac{1}{2}; \frac{1}{2}]$.
-    Plus formellement, le \textit{théorème de Dirichlet} permet de conclure que la série de Fourier de la fonction $f$ (dérivable par morceaux) :
-
-    \begin{itemize}
-        \item
-        converge simplement vers la fonction $f$ ;
-
-        \item
-        converge uniformément vers $f$ sur tout $[a, b]$ qui ne contient pas de point de discontinuité ;
-
-        \item
-        converge vers $ \frac{f(t^{+}) + f(t^{-})}{2}$ pour tout point $t$ de discontinuité.
-    \end{itemize}
-
-\section{Théorème de Gershgorin}
-
-\subsection*{Exercice 7}
-
-    \begin{enumerate}
-        \setlength\itemsep{2em}
-        \item
-        On appelle disque de Gershgorin, le disque $D_{k}$ défini par :
-        $$D_{k} = \{ z \in \C : |z - a{kk}| \leq \Lambda_{k} = \sum\limits_{j=1, j\ne k}^{N} |a_{kj}| \}$$
-
-        Soit la matrice A, carrée de taille N, telle que $A = (a_{ij})_{\underset {1 \leq j \leq N}{1 \leq i \leq N}}$.
-
-        Soit $\lambda$ un vecteur propre de A et $v = (v_1, v_2, ..., v_N)$ le vecteur propre associé.
-
-        D'après l'égalité $(A - \lambda I)v = 0$, on a :
-        $$\forall i \in \llbracket 1 , N \rrbracket, (a_{ii} - \lambda)v_i + \sum\limits_{\underset{i \ne j}{j = 1}}^{N} a_{ij}v_j = 0 \text{ d'où on déduit que } |a_{ii} - \lambda v_{i}| = \sum\limits_{\underset{i \ne j}{j = 1}}^{N} |a_{ij}v_j|$$
-
-        On choisit $i$ tel que $|v_{i}| = sup_{k \in \llbracket 1 , N \rrbracket} |v_{k}|$. On peut former le quotient $\frac{v_j}{v_{i}}$ car $v$ est un
-        vecteur propre, donc il est non nul. On a alors $v_{i} = \underset{k \in \llbracket 1 , N \rrbracket}{sup} |v_{k}| \ne 0$.
-
-        \begin{equation*}
-            \begin{split}
-                |a_{ii} - \lambda|  & = |\sum\limits_{\underset{i \ne j}{j = 1}}^{N} a_{ij} \frac{v_j}{v_{i}}| \\
-                                    & \leq \sum\limits_{\underset{i \ne j}{j = 1}}^{N} |a_{ij} \frac{v_j}{v_{i}}| \\
-                                    & \leq \sum\limits_{\underset{i \ne j}{j = 1}}^{N} |a_{ij}| \text{ étant donné que } \frac{v_j}{v_{i}} \leq 1
-            \end{split}
-        \end{equation*}
-
-        \`{A} partir de cette inégalité, on vérifie que $\exists i \in \llbracket 1 , N \rrbracket,  \lambda \in D_{i}$ soit $\lambda \in \underset{k = 1}{\overset{N}{\cup}} D_{k}$.
-
-        \item
-        Dans \texttt{Scilab}, on représente un disque de Gershgorin $D_{k}$ dans le plan complexe où :
-        \begin{itemize}
-            \item
-            Le centre $(x_{O}, y_{O})$ du disque vaut $(\Re(a_{kk}), \Im(a_{kk}))$ ;
-
-            \item
-            Le rayon $r$ du disque vaut $\Lambda_{k}$.
-        \end{itemize}
-
-        La fonction \texttt{spec} permet d'obtenir les valeurs propres de la matrice $A$.
-        La question suivante montre un exemple de génération des disques grâce à \texttt{Scilab}.
-
-        \item
-        Ce graphique montre que les valeurs propres sont bien dans l'union des disques de $A$.
-        \begin{figure}[H]
-            \centering
-            \caption{\label{graph_exo7} Application du théorème de Gershgorin sur la matrice $A$}
-        \end{figure}
-
-        \item
-        Soit $A$ une matrice \textbf{strictement dominante} telle que $A = (a_{ij})_{\underset {1 \leq j \leq N}{1 \leq i \leq N}}$.
-
-        Comme $A$ est strictement dominante, on a : $\forall i \sum\limits_{k \ne i}^{} |a_{ik}| < |a_{ii}|$.
-
-        Soit $\lambda$ une valeur propre de $A$. D'après la question 1, $\lambda \in \underset{k = 1}{\overset{N}{\cup}} D_{k}$. Alors :
-        \begin{equation*}
-            \begin{split}
-                \exists k : |\lambda - a_{kk}| & \leq \Lambda_{k} = \sum\limits_{j=1, j\ne k}^{N} |a_{kj}| \\
-                            |\lambda - a_{kk}| & \leq \Lambda_{k} = \sum\limits_{j=1, j\ne k}^{N} |a_{kj}| < |a_{kk}| \\
-                            |\lambda - a_{kk}| & < |a_{kk}|
-            \end{split}
-        \end{equation*}
-
-        On en déduit donc que $\lambda \ne 0$. Puisque toutes les valeurs propres de la matrice $A$ sont différentes de $0$, la matrice $A$ est \textbf{inversible}.
-    \end{enumerate}
+    \vspace{8cm}
 
     \section{RESTE}
 
