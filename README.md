@@ -1,4 +1,4 @@
-# Ensi_PatchworkC
+# Ensi_MethodesNumeriques
 Ensimag 1A – Étude de la conductivité thermique dans une barre métallique en Scilab.
 
 ## Utilisation
